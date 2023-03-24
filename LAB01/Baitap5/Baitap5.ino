@@ -1,20 +1,9 @@
 // init led
-int led1 = 13, 
-	led2 = 12, 
-	led3 = 11, 
-	led4 = 10,gig
-  	led5 = 9, 
-	led6 = 8, 
-	led8 = 7, 
-	led10 = 6, 
-	led11 =5, 
-	led12 = 4, 
-	led13 = 3;
+int led1 = 13, led2 = 12, led3 = 11, led4 = 10, led5 = 9, led6 = 8, led8 = 7, led10 = 6, led11 =5, led12 = 4, led13 = 3;
 //init button
 	int button = 2;
 //init level game;
 	int level_number = 3;
-
 
 void setup()
 {
@@ -40,7 +29,6 @@ void setup()
     int led0 = analogRead(A4);
     //init led analog low (0 --> 1023)
     led7 = led9 = led14 = led15 = led0 = 0;
-
 }
 
 void loop()
