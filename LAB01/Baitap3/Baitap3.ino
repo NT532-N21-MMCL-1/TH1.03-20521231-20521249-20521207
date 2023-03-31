@@ -15,11 +15,12 @@ void loop() {
   // put your main code here, to run repeatedly:
    byte buttonState = digitalRead(buttonPin);
      if (buttonState == LOW) {
+       tungxucxac();
        Serial.println("Button is pressed");
      }
     else {
       Serial.println("Button is not pressed");
-    }        
+    }   
 }
 void turnoff(){
   for (int i = 0; i < 6; i++) {
