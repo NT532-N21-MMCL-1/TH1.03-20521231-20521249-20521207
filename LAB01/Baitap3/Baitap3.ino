@@ -26,3 +26,14 @@ void turnoff(){
     digitalWrite(ledPins[i],LOW);
   }
 }
+void beginlight(){
+  for (int i = 0; i < 6; i++) {
+    digitalWrite(ledPins[i], HIGH);
+    delay(200);
+  }
+  for (int i = 5; i >=0; i--) {
+    digitalWrite(ledPins[i], LOW);
+    delay(200);
+  }
+
+}
