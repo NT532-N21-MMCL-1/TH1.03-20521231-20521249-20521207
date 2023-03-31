@@ -13,5 +13,11 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+   byte buttonState = digitalRead(buttonPin);
+     if (buttonState == LOW) {
+       Serial.println("Button is pressed");
+     }
+    else {
+      Serial.println("Button is not pressed");
+    }        
 }
