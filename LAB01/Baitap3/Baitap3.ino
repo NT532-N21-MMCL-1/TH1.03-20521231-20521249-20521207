@@ -37,3 +37,16 @@ void beginlight(){
   }
 
 }
+void choptat_saulan(int diceNumber){
+  for(int i=0;i<6;i++){
+  turnoff();
+            delay(500);
+
+   for (int i = 0; i < diceNumber; i++) {
+    digitalWrite(ledPins[i], HIGH);
+  }
+        delay(500);
+
+  }
+
+}
