@@ -21,3 +21,8 @@ void loop() {
       Serial.println("Button is not pressed");
     }        
 }
+void turnoff(){
+  for (int i = 0; i < 6; i++) {
+    digitalWrite(ledPins[i],LOW);
+  }
+}
