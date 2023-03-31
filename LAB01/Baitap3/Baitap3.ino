@@ -50,3 +50,16 @@ void choptat_saulan(int diceNumber){
   }
 
 }
+void tungxucxac(){
+  beginlight();
+
+  turnoff();
+  diceNumber = random(1, 7);
+  for (int i = 0; i < diceNumber; i++) {
+    digitalWrite(ledPins[i], HIGH);
+  }
+  delay(1000); // dừng 1 giây để người dùng theo dõi số trên LED
+  choptat_saulan(diceNumber);
+  
+  
+  }
