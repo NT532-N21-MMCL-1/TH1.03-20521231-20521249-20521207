@@ -1,8 +1,9 @@
 int ledPins[]={0,13,2,3,4,5,6,7,9,10,11,12,A0,A1,A2,A3};
 int buttonPin = 8;
 int BUTTONstate = 0;
-int Score = 0 
-void setup(){  Serial.begin(9600);
+int Score = 0 ;
+void setup(){  
+  Serial.begin(9600);
   for(int i = 0; i<16; i++)
     pinMode(ledPins[i],OUTPUT);
   pinMode(buttonPin, INPUT);
@@ -18,6 +19,9 @@ void loop()
 
 void mygame(int speed){
 while(1){
+
+  Serial.print("So Diem cua ban la: ");
+  Serial.println(Score);
   for(int i = 0; i <16; i++){
     
     if(i==0)
@@ -33,36 +37,39 @@ while(1){
     {
       
       if(i == 0){
+        Serial.println("Ban vua duoc cong diem");
              denchopsaulan();       
         if(speed == 1000){
-          Score += 100
+          Score += 100;
+          
       		mygame(500);
           
           }
         if(speed == 500){
-          Score += 300
+          Score += 300;
       		mygame(200);
           
           }
         if(speed == 200){
-           Score += 500
+           Score += 500;
       		mygame(200);
          
           }
       }
         
       else{
+        Serial.println("Ban vua bi tru diem");
            if(speed == 1000){
-          Score -= 20
+          Score -= 20;
           
           }
         if(speed == 500){
-          Score += 50
+          Score -= 50;
       		
           
           }
         if(speed == 200){
-           Score -= 100
+           Score -= 100;
          
           }
       }
