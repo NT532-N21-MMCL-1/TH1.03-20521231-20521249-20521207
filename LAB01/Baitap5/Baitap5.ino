@@ -60,3 +60,15 @@ void denchopsaulan(){
 
   }
 }
+void denchoptathailan(int j){
+  for(int i=0; i <2; i++){
+   
+    	digitalWrite(ledPins[j],HIGH);
+    
+    delay(200);
+    	digitalWrite(ledPins[i],LOW);
+    
+    delay(200);
+
+  }
+}
