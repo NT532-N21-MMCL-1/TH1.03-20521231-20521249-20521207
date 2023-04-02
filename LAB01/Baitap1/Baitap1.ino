@@ -6,3 +6,8 @@ void setup(){
     pinMode(ledPins[i],OUTPUT);
 }
 
+void loop(){
+  int inputval = analogRead(A0);
+  int x = map(inputval, 0, 1023, 100, 1300);
+
+}
