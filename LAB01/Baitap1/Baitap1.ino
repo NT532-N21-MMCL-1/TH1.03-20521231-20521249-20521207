@@ -13,7 +13,7 @@ void loop()
   int x = map(inputval, 0, 1023,100, 1300);
   Serial.println(x);
   if(x==100)//gia tri min la 100 
-    ham_tat_den(12);
+    ham_tat_den(1);
   else 
     if(x >100){
     ham_mo_den(1);
