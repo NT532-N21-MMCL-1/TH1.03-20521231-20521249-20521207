@@ -1,5 +1,5 @@
-int ledPins[]={0,13,2,3,4,5,6,7,9,10,11,12,A0,A1,A2,A3};
-int buttonPin = 8;
+int ledPins[]={7,8,9,10,11,12,A0,A1,A2,A4,13,3,2,4,5,6};
+int buttonPin = A3;
 int BUTTONstate = 0;
 int Score = 0 ;
 void setup(){  
@@ -14,7 +14,7 @@ void loop()
   
    denchopsaulan();
 
-   mygame(1000);
+   mygame(500);
 }
 
 void mygame(int speed){
@@ -29,8 +29,8 @@ while(1){
     else
       digitalWrite(ledPins[i-1],LOW);
     
-    digitalWrite(ledPins[i],HIGH);
-    delay(speed);
+  denchoptathailan(i)    
+;    delay(speed);
     BUTTONstate = digitalRead(buttonPin);
 
     if(BUTTONstate == HIGH)
@@ -39,20 +39,20 @@ while(1){
       if(i == 0){
         Serial.println("Ban vua duoc cong diem");
              denchopsaulan();       
-        if(speed == 1000){
+        if(speed == 500){
           Score += 100;
           
-      		mygame(500);
+      		mygame(400);
           
           }
-        if(speed == 500){
-          Score += 300;
-      		mygame(200);
+        if(speed == 400){
+          Score += 400;
+      		mygame(100);
           
           }
-        if(speed == 200){
+        if(speed == 100){
            Score += 500;
-      		mygame(200);
+      		mygame(100);
          
           }
       }
@@ -72,6 +72,7 @@ while(1){
            Score -= 100;
          
           }
+          mygame(500);
       }
     }
 
@@ -97,7 +98,7 @@ void denchoptathailan(int j){
     	digitalWrite(ledPins[j],HIGH);
     
     delay(200);
-    	digitalWrite(ledPins[i],LOW);
+    	digitalWrite(ledPins[j],LOW);
     
     delay(200);
 
