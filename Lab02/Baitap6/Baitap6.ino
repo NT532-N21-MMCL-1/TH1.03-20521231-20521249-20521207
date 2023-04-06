@@ -1,13 +1,12 @@
 int sensorState = 0;
 int sensorPin = 7;
+
+int led1 = 3;
+int led2 = 4;
 void setup()
 {
   Serial.begin(9600);
   pinMode(sensorPin, INPUT);
-}
-void loop()
-{
-  sensorState = digitalRead(sensorPin);
-  Serial.println(sensorState);
-  delay(200);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
 }
