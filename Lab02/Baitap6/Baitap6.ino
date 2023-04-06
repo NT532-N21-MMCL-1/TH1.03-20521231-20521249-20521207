@@ -15,12 +15,17 @@ void loop()
   sensorState = digitalRead(sensorPin);
   Serial.println(sensorState);
   if (sensorState == LOW){
-    
+    tatDen();
   }
   else{
     chopTatLienTuc();
   }
   delay(200);
+}
+
+void tatDen(){
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
 }
 
 void chopTatLienTuc(){
