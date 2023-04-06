@@ -10,3 +10,24 @@ void setup()
   pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
 }
+void loop()
+{
+  sensorState = digitalRead(sensorPin);
+  Serial.println(sensorState);
+  if (sensorState == LOW){
+    
+  }
+  else{
+    chopTatLienTuc();
+  }
+  delay(200);
+}
+
+void chopTatLienTuc(){
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+  delay(200);
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  delay(200);
+}
