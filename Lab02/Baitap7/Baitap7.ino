@@ -8,8 +8,13 @@
 #define led8 8
 #define led9 9
 #define led10 10
+#define buttonPin 12
 
 int sensorValue = 0;
+int ledState = LOW;
+int currentButtonState = 0;
+int lastButtonState = 0;
+int buttonPushCounter = 0;
 
 void setup()
 {
@@ -26,6 +31,7 @@ void setup()
   pinMode(A0, INPUT);
   
   Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
 
 }
 
@@ -112,5 +118,22 @@ void loop()
   	digitalWrite(led8, LOW);
     digitalWrite(led9, LOW);
   	digitalWrite(led10, LOW);
+  }
+  lastButtonState    = currentButtonState;
+   currentButtonState = digitalRead(buttonPin);
+ 
+  if(lastButtonState == HIGH && currentButtonState == LOW) {
+  
+    if(ledState == LOW) {
+       ledState = HIGH;  
+    }
+    else {
+      ledState = LOW;
+    }
+ 	digitalWrite(led1, ledState);
+    digitalWrite(led2, ledState); 
+    digitalWrite(led3, ledState);
+    digitalWrite(led4, ledState);
+    digitalWrite(led5, ledState);
   }
 }
