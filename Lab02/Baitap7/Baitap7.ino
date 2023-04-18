@@ -1,3 +1,7 @@
+#include "OneButton.h"
+
+OneButton button(12, true);
+
 #define led1 2
 #define led2 3
 #define led3 4
@@ -8,39 +12,49 @@
 #define led8 9
 #define led9 10
 #define led10 11
-#define buttonPin 12
 
+bool flag = false; 
 int sensorValue = 0;
 int value = 0;
-void setup()
-{
-  
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-  pinMode(led3, OUTPUT);
-  pinMode(led4, OUTPUT);
-  pinMode(led5, OUTPUT);
-  pinMode(led6, OUTPUT);
-  pinMode(led7, OUTPUT);
-  pinMode(led8, OUTPUT);
-  pinMode(led9, OUTPUT);
-  pinMode(led10, OUTPUT);
+
+void setup() {
+
+  for(int i = led1; i<= led10; i++){
+    pinMode(i,OUTPUT);
+  }
   pinMode(A0, INPUT);
-  pinMode(buttonPin, INPUT);
   Serial.begin(9600);
-  
+  button.attachClick(singleclick);
+  button.attachDoubleClick(doubleclick);
+  doubleclick();
 }
 
-void loop()
-{
- 
+void singleclick() {
+  flag = true;
+  Serial.println("singleclick");
+}
+
+void doubleclick() {
+  flag = false;
+  Serial.println("doubleclick");
+}
+
+void loop() {
   sensorValue = analogRead(A0);
-  Serial.println(value);
-  value = map(sensorValue,6,679,10,1);
-  for(int i = led1 ; i <= led10; i++){
-    digitalWrite(i,LOW);
+  button.tick();
+  delay(10);
+  if(flag == true)
+  {
+   value = map(sensorValue, 0, 1023, 0, 5);
   }
-  for(int i = led1  ; i < led1 + value; i++){
-    digitalWrite(i,HIGH);
+  else
+  {
+   value = map(sensorValue, 0, 1023, 0, 10);
+  }
+  for (int i = led1; i <= led10; i++) {
+    digitalWrite(i, LOW);
+  }
+  for (int i = led1; i < led1 + value; i++) {
+    digitalWrite(i, HIGH);
   }
 }
