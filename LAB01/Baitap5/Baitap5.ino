@@ -1,48 +1,106 @@
-// init led
-int led0 = 0, led1 = 1, led2 = 2, led3 = 3, led4 = 4, led5 = 5, led6 = 6, led8 = 7, led8 = 8, led9 = 9, led10 = 10, led11 = 11, led12 = 12, led13 = 13;
-//init button
-	int button = 2;
-//init level game;
-	int level_number = 3;
 
-void setup()
-{
-    // button input
-    pinMode(button, INPUT);
-    // 11 led digital output
-    pinMode(led1, OUTPUT);
-    pinMode(led2, OUTPUT);
-    pinMode(led3, OUTPUT);
-    pinMode(led4, OUTPUT);
-    pinMode(led5, OUTPUT);
-    pinMode(led6, OUTPUT);
-    pinMode(led8, OUTPUT);
-    pinMode(led10, OUTPUT);
-    pinMode(led11, OUTPUT);
-    pinMode(led12, OUTPUT);
-    pinMode(led13, OUTPUT);
-    pinMode(A0, OUTPUT);
-    pinMode(A1, OUTPUT);
-    pinMode(A2, OUTPUT);
-    pinMode(A3, OUTPUT);
-    pinMode(A4, OUTPUT);
-
-    // 5 led anolog 
-    int led7 = analogRead(A0);
-    int led9 = analogRead(A1);
-    int led14 = analogRead(A2);
-    int led15 = analogRead(A3);
-    int led0 = analogRead(A4);
-    //init led analog low (0 --> 1023)
-    led7 = led9 = led14 = led15 = led0 = 0;
+int ledPins[]={7,8,9,10,11,12,A0,A1,A2,A4,13,3,2,4,5,6};
+int buttonPin = A3;
+int BUTTONstate = 0;
+int Score = 0 ;
+void setup(){  
+  Serial.begin(9600);
+  for(int i = 0; i<16; i++)
+    pinMode(ledPins[i],OUTPUT);
+  pinMode(buttonPin, INPUT);
 
 }
-
-void init(){
-    
-}
-
 void loop()
 {
-    
+  
+   denchopsaulan();
+
+   mygame(500);
 }
+
+void mygame(int speed){
+while(1){
+
+  Serial.print("So Diem cua ban la: ");
+  Serial.println(Score);
+  for(int i = 0; i <16; i++){
+    
+    if(i==0)
+      digitalWrite(ledPins[15],LOW);
+    else
+      digitalWrite(ledPins[i-1],LOW);
+    
+  denchoptathailan(i)    
+;    delay(speed);
+    BUTTONstate = digitalRead(buttonPin);
+
+    if(BUTTONstate == HIGH)
+    {
+      
+      if(i == 0){
+        Serial.println("Ban vua duoc cong diem");
+             denchopsaulan();       
+        if(speed == 500){
+          Score += 100;
+          
+      		mygame(400);
+          
+          }
+        if(speed == 400){
+          Score += 400;
+      		mygame(100);
+          
+          }
+        if(speed == 100){
+           Score += 500;
+      		mygame(100);
+         
+          }
+      }
+        
+      else{
+        Serial.println("Ban vua bi tru diem");
+           if(speed == 1000){
+          Score -= 20;
+          
+          }
+        if(speed == 500){
+          Score -= 50;
+      		
+          
+          }
+        if(speed == 200){
+           Score -= 100;
+         
+          }
+          mygame(500);
+      }
+    }
+
+  }
+}
+}
+void denchopsaulan(){
+  for(int i=0; i <6; i++){
+    for(int i = 0; i <16; i++){
+    	digitalWrite(ledPins[i],HIGH);
+    }
+    delay(200);
+     for(int i = 0; i <16; i++){
+    	digitalWrite(ledPins[i],LOW);
+    }
+        delay(200);
+
+  }
+}
+void denchoptathailan(int j){
+  for(int i=0; i <2; i++){
+   
+    	digitalWrite(ledPins[j],HIGH);
+    
+    delay(200);
+    	digitalWrite(ledPins[j],LOW);
+    
+    delay(200);
+
+  }
