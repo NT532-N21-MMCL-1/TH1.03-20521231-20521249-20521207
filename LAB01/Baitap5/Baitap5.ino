@@ -1,3 +1,4 @@
+
 int ledPins[]={7,8,9,10,11,12,A0,A1,A2,A4,13,3,2,4,5,6};
 int buttonPin = A3;
 int BUTTONstate = 0;
@@ -103,4 +104,3 @@ void denchoptathailan(int j){
     delay(200);
 
   }
-}
