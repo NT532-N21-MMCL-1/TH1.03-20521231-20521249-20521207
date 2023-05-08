@@ -34,4 +34,18 @@ void setup() {
   client.setCallback(callback);
 }
 
+void loop() {
+  if (!client.connected()) {
+    while (!client.connected()) {
+      if (client.connect("WemosD1Client")) {
+        Serial.println("Connected to MQTT Broker");
+        client.subscribe(topic);
+      } else {
+        delay(1000);
+      }
+    }
+  }
+  client.loop();
+}
+
 
