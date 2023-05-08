@@ -48,4 +48,16 @@ void loop() {
   client.loop();
 }
 
+void callback(char* topic, byte* payload, unsigned int length) {
+  String message = "";
+  for (int i = 0; i < length; i++) {
+    message += (char)payload[i];
+  }
+    Serial.println(message);
 
+  if (message == "on") {
+    digitalWrite(ledPin, HIGH);
+  } else if (message == "off") {
+    digitalWrite(ledPin, LOW);
+  }
+}
