@@ -14,4 +14,24 @@ PubSubClient client(espClient);
 
 const int ledPin = D3;
 
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+  }
+
+  client.setServer(mqttServer, mqttPort);
+  while (!client.connected()) {
+    if (client.connect("WemosD1Client")) {
+      Serial.println("Connected to MQTT Broker");
+    } else {
+      delay(1000);
+    }
+  }
+  client.subscribe(topic);
+  client.setCallback(callback);
+}
+
 
