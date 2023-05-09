@@ -57,4 +57,43 @@ void setup() {
   dht.begin();
 }
 
+void loop() {
+  // Read temperature and humidity values from DHT11 sensor
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+  Serial.println(humidity);
+  Serial.println(temperature);
 
+  // If values are valid, publish to MQTT broker
+  if (!isnan(humidity) && !isnan(temperature)) {
+    if ((temperature < 25 || temperature > 27) || (humidity < 40 || humidity > 70)) {
+      mqttClient.publish(detected_topic, "Phat hien bat thuong");
+      digitalWrite(LED, HIGH);
+      delay(200);
+      digitalWrite(LED, LOW);
+      delay(200);
+      digitalWrite(LED, HIGH);
+      delay(200);
+      digitalWrite(LED, LOW);
+      delay(200);
+      digitalWrite(LED, HIGH);
+      delay(200);
+      digitalWrite(LED, LOW);
+      delay(200);
+      digitalWrite(LED, HIGH);
+      delay(200);
+      digitalWrite(LED, LOW);
+      delay(200);
+      digitalWrite(LED, HIGH);
+      delay(200);
+      digitalWrite(LED, LOW);
+      delay(200);
+    } else {
+      String message = String(temperature) + "," + String(humidity);
+      mqttClient.publish(topic, message.c_str());
+    }
+  }
+
+  // Wait 5 seconds before publishing again
+  delay(5000);
+}
