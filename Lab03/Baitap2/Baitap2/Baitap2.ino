@@ -16,3 +16,18 @@ const int led3Pin = D5;
 int lightLevel = 0;
 int distanceLevel = 0;
 
+void setup() {
+  Serial.begin(115200);
+  pinMode(lightSensorPin, INPUT);
+  pinMode(distanceSensorPin, INPUT);
+  pinMode(led1Pin, OUTPUT);
+  pinMode(led2Pin, OUTPUT);
+  pinMode(led3Pin, OUTPUT);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+}
+
