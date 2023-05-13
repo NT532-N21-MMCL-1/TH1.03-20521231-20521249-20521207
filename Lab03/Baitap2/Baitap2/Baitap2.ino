@@ -31,3 +31,16 @@ void setup() {
   Serial.println("Connected to WiFi");
 }
 
+void loop() {
+  // Read sensor values
+  lightLevel = analogRead(lightSensorPin);
+  distanceLevel = digitalRead(distanceSensorPin);
+  
+  // Create JSON payload
+  DynamicJsonDocument doc(1024);
+  doc["distance"] = distanceLevel;
+  doc["light"] = lightLevel;
+  String payload;
+  serializeJson(doc, payload);
+
+}
