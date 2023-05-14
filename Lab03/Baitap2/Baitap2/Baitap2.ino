@@ -4,7 +4,7 @@
 
 const char* ssid = "UiTiOt-E3.1";
 const char* password = "UiTiOtAP";
-const char* serverUrl = "http://127.0.0.1:8000/sensor";
+const char* serverUrl = "http://127.0.0.1:8000/api";
 
 const int lightSensorPin = A0;
 const int distanceSensorPin = D2;
@@ -18,6 +18,7 @@ int distanceLevel = 0;
 
 void setup() {
   Serial.begin(115200);
+
   pinMode(lightSensorPin, INPUT);
   pinMode(distanceSensorPin, INPUT);
   pinMode(led1Pin, OUTPUT);
@@ -44,8 +45,9 @@ void loop() {
   serializeJson(doc, payload);
 
   // Send POST request to server
+  WiFiClient client;
   HTTPClient http;
-  http.begin(serverUrl);
+  http.begin(client, serverUrl);
   http.addHeader("Content-Type", "application/json");
   int httpResponseCode = http.POST(payload);
   if (httpResponseCode == HTTP_CODE_OK) {
@@ -53,7 +55,8 @@ void loop() {
     String response = http.getString();
     DynamicJsonDocument doc(1024);
     deserializeJson(doc, response);
-    int lightCount = doc["data"]["light_count"];
+    // int lightCount = doc["data"]["light_count"];
+    int lightCount = doc["num_leds"];
     if (lightCount == 1) {
       digitalWrite(led1Pin, HIGH);
       digitalWrite(led2Pin, LOW);
