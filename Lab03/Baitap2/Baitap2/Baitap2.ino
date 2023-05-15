@@ -12,8 +12,6 @@ const char* serverUrl = "http://172.31.10.247:8000/api";
 const int trigPin = D7;   
 const int echoPin = D6; 
 
-const int lightSensorPin = A0;
-const int distanceSensorPin = D2;
 Ultrasonic ultrasonic(trigPin, echoPin);
 
 const int led1Pin = D3;
