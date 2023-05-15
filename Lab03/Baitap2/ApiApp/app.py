@@ -24,10 +24,10 @@ async def read_api():
 async def Data(sensor_data: SensorData):
     num_leds = 0
 
-    if (sensor_data.distance < 100):
-        if(sensor_data.light > 50):
+    if (sensor_data.distance < 30):
+        if(sensor_data.light > 200):
             num_leds = 3
-        elif(sensor_data.light > 20):
+        elif(sensor_data.light > 50):
             num_leds = 2
         elif(sensor_data.light > 5):
             num_leds = 1
