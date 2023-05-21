@@ -26,8 +26,6 @@ BH1750 lightMeter;
 void setup() {
   Serial.begin(115200);
 
-  pinMode(lightSensorPin, INPUT);
-  pinMode(distanceSensorPin, INPUT);
   pinMode(led1Pin, OUTPUT);
   pinMode(led2Pin, OUTPUT);
   pinMode(led3Pin, OUTPUT);
