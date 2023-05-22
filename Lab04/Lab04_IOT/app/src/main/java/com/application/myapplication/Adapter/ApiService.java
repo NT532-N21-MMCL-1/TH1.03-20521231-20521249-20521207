@@ -11,4 +11,10 @@ public interface ApiService {
 
     @GET("/sensor-data")
     Call<ApiResponse> getSensorData();
+
+    @GET("/dashboard")
+    Call<ApiResponse> getDeviceInfo();
+
+    @GET("/log")
+    Call<ApiResponse> getLog();
 }

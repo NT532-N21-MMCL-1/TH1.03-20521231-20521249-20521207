@@ -16,7 +16,7 @@ public class DeviceAdapter extends ArrayAdapter<Device> {
     public DeviceAdapter(Context context, List<Device> devices) {
         super(context, 0, devices);
     }
-    TextView nameTextView, statusTextView, uptimeTextView;
+    TextView nameTextView, statusTextView, connectTextView, disConnectTextView;
     ImageView imageView;
     Device device;
     @Override
@@ -35,8 +35,11 @@ public class DeviceAdapter extends ArrayAdapter<Device> {
         statusTextView = convertView.findViewById(R.id.device_status);
         statusTextView.setText(device.getStatus());
 
-        uptimeTextView = convertView.findViewById(R.id.device_uptime);
-        uptimeTextView.setText(device.getUptime());
+        connectTextView = convertView.findViewById(R.id.device_last_connect);
+        connectTextView.setText(device.getLastConnect());
+
+        disConnectTextView = convertView.findViewById(R.id.device_last_connect);
+        disConnectTextView.setText(device.getLastDisconnect());
 
         imageView = convertView.findViewById(R.id.device_image);
         imageView.setImageResource(device.getImageResId());

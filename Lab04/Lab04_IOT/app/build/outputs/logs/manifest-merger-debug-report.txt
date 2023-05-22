@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
 MERGED from [com.google.android.material:material:1.8.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\95950d354b84d5d91cbfde9f6f44b692\transformed\material-1.8.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\4fdbead62801f6c959c95d643aa636bd\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\e082953cf78460bf5651180b9b00afff\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -82,22 +82,22 @@ MERGED from [com.google.firebase:firebase-components:17.1.0] D:\MOBILE\Open Remo
 MERGED from [androidx.documentfile:documentfile:1.0.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\e76ad481dac6746f1256a09cabc5d768\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\98b6ddbdd44cacbe3df29468ee0e04ad\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\0337433b6f9c2e0f1d50ccb6de5dcb94\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
+INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
 	package
 		INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
 		INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
 		INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-67:12
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:1-68:12
 		INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:2:11-69
@@ -154,7 +154,7 @@ ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main
 	android:name
 		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:8:22-72
 application
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:10:5-65:19
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:10:5-66:19
 MERGED from [com.google.android.material:material:1.8.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\95950d354b84d5d91cbfde9f6f44b692\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.8.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\95950d354b84d5d91cbfde9f6f44b692\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\4fdbead62801f6c959c95d643aa636bd\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -226,7 +226,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\MOBILE\O
 	android:fullBackupContent
 		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:13:9-54
 	tools:ignore
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:20:9-33
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:21:9-33
 	android:roundIcon
 		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:16:9-54
 	tools:targetApi
@@ -239,32 +239,34 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\MOBILE\O
 		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:18:9-51
 	android:dataExtractionRules
 		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:12:9-65
+	android:usesCleartextTraffic
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:20:9-44
 activity#com.application.myapplication.MainActivity
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:50:9-63:20
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:51:9-64:20
 	android:exported
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:52:13-36
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:53:13-36
 	android:name
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:51:13-41
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:52:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:53:13-57:29
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:54:13-58:29
 action#android.intent.action.MAIN
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:54:17-69
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:55:17-69
 	android:name
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:54:25-66
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:55:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:56:17-77
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:57:17-77
 	android:name
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:56:27-74
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:57:27-74
 meta-data#android.app.lib_name
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:59:13-61:36
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:60:13-62:36
 	android:value
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:61:17-33
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:62:17-33
 	android:name
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:60:17-52
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:61:17-52
 service#org.eclipse.paho.android.service.MqttService
-ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:64:9-80
+ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:65:9-80
 	android:name
-		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:64:18-77
+		ADDED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:65:18-77
 uses-sdk
 INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml

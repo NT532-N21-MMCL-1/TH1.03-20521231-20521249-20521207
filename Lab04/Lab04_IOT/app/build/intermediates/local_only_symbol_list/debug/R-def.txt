@@ -39,9 +39,10 @@ id deviceIdTextView
 id deviceIpTextView
 id deviceNameTextView
 id device_image
+id device_last_connect
+id device_last_disconnect
 id device_name
 id device_status
-id device_uptime
 id devices
 id fragment_container
 id humidity_info
