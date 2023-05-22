@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.application.myapplication.Adapter.ApiService;
 import com.application.myapplication.ApiClient;
@@ -105,16 +106,31 @@ public class HumidityFragment extends Fragment {
 
 //set min max and current value
         humidityGauge.setMinValue(0.0);
-        humidityGauge.setMaxValue(40.0);
+        humidityGauge.setMaxValue(100.0);
         humidityGauge.setValue(30.0);
 
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<ApiResponse> callHumidity = apiService.getApi();
+        Call<ApiResponse> callHumidity = apiService.getSensorData();
         callHumidity.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                ApiResponse apiResponse = response.body();
-                Log.d("API", apiResponse.getMessage());
+                if (response.isSuccessful()) {
+                    ApiResponse apiResponse = response.body();
+                    if (apiResponse != null && apiResponse.getSensorData() != null) {
+                        int humidity = apiResponse.getSensorData().getHumidity();
+                        // Sử dụng giá trị nhiệt độ ở đây
+                        Log.d("API", String.valueOf(humidity));
+                        humidityGauge.setValue(humidity);
+                    }
+                    else {
+                        Log.e("API ", "Null");
+
+                    }
+                } else {
+                    // Xử lý lỗi khi yêu cầu không thành công
+                    Log.e("API Error", response.message());
+                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

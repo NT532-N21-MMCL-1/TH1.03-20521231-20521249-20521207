@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.application.myapplication.Adapter.ApiService;
 import com.application.myapplication.ApiClient;
@@ -81,7 +82,7 @@ public class LightFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        FullGauge humidityGauge = getView().findViewById(R.id.light_info);
+        FullGauge lightGauge = getView().findViewById(R.id.light_info);
         Range range = new Range();
         range.setColor(Color.parseColor("#ce0000"));
         range.setFrom(0.0);
@@ -98,22 +99,37 @@ public class LightFragment extends Fragment {
         range3.setTo(150.0);
 
 //add color ranges to gauge
-        humidityGauge.addRange(range);
-        humidityGauge.addRange(range2);
-        humidityGauge.addRange(range3);
+        lightGauge.addRange(range);
+        lightGauge.addRange(range2);
+        lightGauge.addRange(range3);
 
 //set min max and current value
-        humidityGauge.setMinValue(0.0);
-        humidityGauge.setMaxValue(40.0);
-        humidityGauge.setValue(15.0);
+        lightGauge.setMinValue(0.0);
+        lightGauge.setMaxValue(300.0);
+        lightGauge.setValue(15.0);
 
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<ApiResponse> callLight = apiService.getApi();
+        Call<ApiResponse> callLight = apiService.getSensorData();
         callLight.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                ApiResponse apiResponse = response.body();
-                Log.d("API", apiResponse.getMessage());
+                if (response.isSuccessful()) {
+                    ApiResponse apiResponse = response.body();
+                    if (apiResponse != null && apiResponse.getSensorData() != null) {
+                        int humidity = apiResponse.getSensorData().getHumidity();
+                        // Sử dụng giá trị nhiệt độ ở đây
+                        Log.d("API", String.valueOf(humidity));
+                        lightGauge.setValue(humidity);
+                    }
+                    else {
+                        Log.e("API ", "Null");
+
+                    }
+                } else {
+                    // Xử lý lỗi khi yêu cầu không thành công
+                    Log.e("API Error", response.message());
+                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

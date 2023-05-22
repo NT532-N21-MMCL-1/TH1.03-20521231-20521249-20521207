@@ -85,7 +85,8 @@ public class DashBoardFragment extends Fragment {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 ApiResponse apiResponse = response.body();
-                Log.d("API", apiResponse.getMessage());
+//                Log.d("API", apiResponse.getMessage());
+
             }
 
             @Override

@@ -2,15 +2,15 @@ package com.application.myapplication.Fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.application.myapplication.Adapter.ApiService;
 import com.application.myapplication.ApiClient;
@@ -18,6 +18,7 @@ import com.application.myapplication.ApiResponse;
 import com.application.myapplication.R;
 import com.ekn.gruzer.gaugelibrary.ArcGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
+import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -108,12 +109,27 @@ public class TempFragment extends Fragment {
         tempGauge.setValue(30.0);
 
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<ApiResponse> callTemp = apiService.getApi();
+        Call<ApiResponse> callTemp = apiService.getSensorData();
         callTemp.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                ApiResponse apiResponse = response.body();
-                Log.d("API", apiResponse.getMessage());
+                if (response.isSuccessful()) {
+                    ApiResponse apiResponse = response.body();
+                    if (apiResponse != null && apiResponse.getSensorData() != null) {
+                        int temperature = apiResponse.getSensorData().getTemperature();
+                        // Sử dụng giá trị nhiệt độ ở đây
+                        Log.d("API", String.valueOf(temperature));
+                        tempGauge.setValue(temperature);
+                    }
+                    else {
+                        Log.e("API ", "Null");
+
+                    }
+                } else {
+                    // Xử lý lỗi khi yêu cầu không thành công
+                    Log.e("API Error", response.message());
+                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -121,7 +137,6 @@ public class TempFragment extends Fragment {
                 Log.d("API", t.getMessage());
             }
         });
-
 
 
     }
