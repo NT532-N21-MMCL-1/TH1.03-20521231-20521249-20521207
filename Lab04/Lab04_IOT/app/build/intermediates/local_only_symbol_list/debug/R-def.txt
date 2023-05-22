@@ -133,3 +133,4 @@ string welcome_to_iot_system_group_3
 style Theme.MyApplication
 xml backup_rules
 xml data_extraction_rules
+xml network_security_config
