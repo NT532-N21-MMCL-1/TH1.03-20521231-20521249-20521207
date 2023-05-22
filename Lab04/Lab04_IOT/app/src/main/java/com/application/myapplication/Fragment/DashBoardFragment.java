@@ -3,6 +3,7 @@ package com.application.myapplication.Fragment;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +13,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.application.myapplication.Adapter.ApiService;
 import com.application.myapplication.Adapter.Device;
 import com.application.myapplication.Adapter.DeviceAdapter;
+import com.application.myapplication.ApiClient;
+import com.application.myapplication.ApiResponse;
 import com.application.myapplication.MyDbHelper;
 import com.application.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class DashBoardFragment extends Fragment {
@@ -70,5 +78,20 @@ public class DashBoardFragment extends Fragment {
         ListView listView = getView().findViewById(R.id.list_view_device);
         listView.setAdapter(adapter);
         super.onViewCreated(view, savedInstanceState);
+
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        Call<ApiResponse> callDashboard = apiService.getApi();
+        callDashboard.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                ApiResponse apiResponse = response.body();
+                Log.d("API", apiResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Log.d("API", t.getMessage());
+            }
+        });
     }
 }
