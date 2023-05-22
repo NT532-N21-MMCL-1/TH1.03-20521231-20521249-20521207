@@ -2,6 +2,7 @@ package com.application.myapplication.Fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.application.myapplication.Adapter.ApiService;
+import com.application.myapplication.ApiClient;
+import com.application.myapplication.ApiResponse;
 import com.application.myapplication.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -26,6 +30,10 @@ import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ChartFragment extends Fragment {
@@ -94,6 +102,21 @@ public class ChartFragment extends Fragment {
 
         // Thiết kế và gán dữ liệu cho biểu đồ cột độ ẩm
         setupHumidityChart(humidityData);
+
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        Call<ApiResponse> callChart = apiService.getApi();
+        callChart.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                ApiResponse apiResponse = response.body();
+                Log.d("API", apiResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Log.d("API", t.getMessage());
+            }
+        });
 
     }
 

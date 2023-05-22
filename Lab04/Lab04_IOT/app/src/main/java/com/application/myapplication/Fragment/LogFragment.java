@@ -1,6 +1,7 @@
 package com.application.myapplication.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.application.myapplication.Adapter.ApiService;
 import com.application.myapplication.Adapter.LogAdapter;
 import com.application.myapplication.Adapter.LogItem;
+import com.application.myapplication.ApiClient;
+import com.application.myapplication.ApiResponse;
 import com.application.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -86,6 +94,21 @@ public class LogFragment extends Fragment {
         // Khởi tạo Adapter và gán cho RecyclerView
         logAdapter = new LogAdapter(logItems);
         recyclerView.setAdapter(logAdapter);
+
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        Call<ApiResponse> callLog = apiService.getApi();
+        callLog.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                ApiResponse apiResponse = response.body();
+                Log.d("API", apiResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Log.d("API", t.getMessage());
+            }
+        });
 
     }
 

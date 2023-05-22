@@ -156,6 +156,7 @@ public class MainFragment extends Fragment {
                 publishMessage("mmcl/nhomX/led/n2", "OFF", 1);
             }
         });
+
     }
 
     private void switchFragment(Fragment fragment) {
