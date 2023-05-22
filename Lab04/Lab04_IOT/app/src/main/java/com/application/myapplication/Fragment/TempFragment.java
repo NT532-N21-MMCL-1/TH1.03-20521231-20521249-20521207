@@ -7,13 +7,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.application.myapplication.Adapter.ApiService;
+import com.application.myapplication.ApiClient;
+import com.application.myapplication.ApiResponse;
 import com.application.myapplication.R;
 import com.ekn.gruzer.gaugelibrary.ArcGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,6 +106,22 @@ public class TempFragment extends Fragment {
         tempGauge.setMinValue(0.0);
         tempGauge.setMaxValue(40.0);
         tempGauge.setValue(30.0);
+
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        Call<ApiResponse> callTemp = apiService.getApi();
+        callTemp.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                ApiResponse apiResponse = response.body();
+                Log.d("API", apiResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Log.d("API", t.getMessage());
+            }
+        });
+
 
 
     }
