@@ -1,4 +1,4 @@
-#Mon May 22 14:55:00 ICT 2023
+#Tue May 23 21:13:42 ICT 2023
 base.0=D\:\\IOT\\TH1.03-20521231-20521249-20521207\\Lab04\\Lab04_IOT\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\IOT\\TH1.03-20521231-20521249-20521207\\Lab04\\Lab04_IOT\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=D\:\\IOT\\TH1.03-20521231-20521249-20521207\\Lab04\\Lab04_IOT\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex

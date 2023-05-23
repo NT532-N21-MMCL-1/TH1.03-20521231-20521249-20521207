@@ -109,34 +109,34 @@ public class TempFragment extends Fragment {
         tempGauge.setValue(30.0);
 
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<ApiResponse> callTemp = apiService.getSensorData();
-        callTemp.enqueue(new Callback<ApiResponse>() {
-            @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                if (response.isSuccessful()) {
-                    ApiResponse apiResponse = response.body();
-                    if (apiResponse != null && apiResponse.getSensorData() != null) {
-                        int temperature = apiResponse.getSensorData().getTemperature();
-                        // Sử dụng giá trị nhiệt độ ở đây
-                        Log.d("API", String.valueOf(temperature));
-                        tempGauge.setValue(temperature);
-                    }
-                    else {
-                        Log.e("API ", "Null");
-
-                    }
-                } else {
-                    // Xử lý lỗi khi yêu cầu không thành công
-                    Log.e("API Error", response.message());
-                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
-                Log.d("API", t.getMessage());
-            }
-        });
+//        Call<ApiResponse> callTemp = apiService.getSensorData();
+//        callTemp.enqueue(new Callback<ApiResponse>() {
+//            @Override
+//            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+//                if (response.isSuccessful()) {
+//                    ApiResponse apiResponse = response.body();
+//                    if (apiResponse != null && apiResponse.getSensorData() != null) {
+//                        int temperature = apiResponse.getSensorData().getTemperature();
+//                        // Sử dụng giá trị nhiệt độ ở đây
+//                        Log.d("API", String.valueOf(temperature));
+//                        tempGauge.setValue(temperature);
+//                    }
+//                    else {
+//                        Log.e("API ", "Null");
+//
+//                    }
+//                } else {
+//                    // Xử lý lỗi khi yêu cầu không thành công
+//                    Log.e("API Error", response.message());
+//                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ApiResponse> call, Throwable t) {
+//                Log.d("API", t.getMessage());
+//            }
+//        });
 
 
     }

@@ -34,6 +34,7 @@ id action_main
 id bottomNavigationView
 id btn_next_fragment
 id chart_humidity
+id chart_light
 id chart_temperature
 id deviceIdTextView
 id deviceIpTextView
@@ -68,6 +69,7 @@ layout fragment_log
 layout fragment_main
 layout fragment_temp
 layout item_device
+layout item_graph
 layout item_log
 menu bottom_navigation
 mipmap ic_launcher

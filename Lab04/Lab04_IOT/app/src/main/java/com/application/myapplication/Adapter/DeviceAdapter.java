@@ -1,50 +1,30 @@
 package com.application.myapplication.Adapter;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.application.myapplication.R;
 
-import java.util.List;
+public class DeviceAdapter extends RecyclerView.ViewHolder {
 
-public class DeviceAdapter extends ArrayAdapter<Device> {
-    public DeviceAdapter(Context context, List<Device> devices) {
-        super(context, 0, devices);
-    }
-    TextView nameTextView, statusTextView, connectTextView, disConnectTextView;
-    ImageView imageView;
-    Device device;
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_device, parent, false);
-        }
+    public ImageView imageDevice;
+    public TextView deviceName;
+    public TextView status;
+    public TextView lastConnected;
+    public TextView lastDisconnected;
 
-        // Lấy ra đối tượng Device tại vị trí position
-        device = getItem(position);
 
-        // Set thông tin của thiết bị lên View
-        nameTextView = convertView.findViewById(R.id.device_name);
-        nameTextView.setText(device.getName());
 
-        statusTextView = convertView.findViewById(R.id.device_status);
-        statusTextView.setText(device.getStatus());
-
-        connectTextView = convertView.findViewById(R.id.device_last_connect);
-        connectTextView.setText(device.getLastConnect());
-
-        disConnectTextView = convertView.findViewById(R.id.device_last_connect);
-        disConnectTextView.setText(device.getLastDisconnect());
-
-        imageView = convertView.findViewById(R.id.device_image);
-        imageView.setImageResource(device.getImageResId());
-
-        return convertView;
+    public DeviceAdapter(@NonNull View itemView) {
+        super(itemView);
+        imageDevice = itemView.findViewById(R.id.device_image);
+        deviceName = itemView.findViewById(R.id.device_name);
+        status = itemView.findViewById(R.id.device_status);
+        lastConnected = itemView.findViewById(R.id.device_last_connect);
+        lastDisconnected = itemView.findViewById(R.id.device_last_disconnect);
     }
 }
-

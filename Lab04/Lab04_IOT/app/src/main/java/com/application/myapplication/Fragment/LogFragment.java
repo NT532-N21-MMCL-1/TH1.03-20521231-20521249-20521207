@@ -1,7 +1,6 @@
 package com.application.myapplication.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.myapplication.Adapter.ApiService;
-import com.application.myapplication.Adapter.LogAdapter;
-import com.application.myapplication.Adapter.LogItem;
+//import com.application.myapplication.Adapter.LogAdapter;
 import com.application.myapplication.ApiClient;
-import com.application.myapplication.ApiResponse;
 import com.application.myapplication.R;
 
 import java.util.ArrayList;
@@ -34,7 +31,7 @@ import retrofit2.Response;
 public class LogFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private LogAdapter logAdapter;
+//    private LogAdapter logAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,41 +85,50 @@ public class LogFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = getView().findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        // Khởi tạo danh sách dữ liệu mẫu
-        List<LogItem> logItems = createSampleData();
+//        // Khởi tạo danh sách dữ liệu mẫu
+//        List<LogItem> logItems = createSampleData();
+//        // Khởi tạo Adapter và gán cho RecyclerView
+//        logAdapter = new LogAdapter(logItems);
+//        recyclerView.setAdapter(logAdapter);
+//
+//        callApi("1");
+//        callApi("2");
+    }
 
-        // Khởi tạo Adapter và gán cho RecyclerView
-        logAdapter = new LogAdapter(logItems);
-        recyclerView.setAdapter(logAdapter);
+    private void callApi(String id){
 
-        ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<ApiResponse> callLog = apiService.getApi();
-        callLog.enqueue(new Callback<ApiResponse>() {
-            @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                ApiResponse apiResponse = response.body();
-                Log.d("API", apiResponse.getMessage());
-            }
-
-            @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
-                Log.d("API", t.getMessage());
-            }
-        });
-
+//        List<DeviceSensor> deviceList = new ArrayList<>();
+////        DeviceSensor adapter = new DeviceSensorAdapter(deviceList);
+//
+//        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+//        Call<DeviceSensor> callLog = apiService.getDataById(Integer.parseInt(id));
+//        callLog.enqueue(new Callback<DeviceSensor>() {
+//            @Override
+//            public void onResponse(Call<DeviceSensor> call, Response<DeviceSensor> response) {
+//                if(response.isSuccessful()){
+//                    DeviceSensor deviceSensor =response.body();
+////                    String deviceName = deviceSensor?
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<DeviceSensor> call, Throwable t) {
+//
+//            }
+//        });
     }
 
     // Hàm tạo dữ liệu mẫu
-    private List<LogItem> createSampleData() {
-        List<LogItem> logItems = new ArrayList<>();
-
-        // Thêm các mục dữ liệu vào danh sách
-        logItems.add(new LogItem(1, "Wemos", "192.168.1.1", "Light", "200 lux", "10:30 AM"));
-        logItems.add(new LogItem(2, "Raspi", "192.168.1.2", "Humi", "40%", "11:45 AM"));
-        logItems.add(new LogItem(3, "Wemos", "192.168.1.3", "Temp", "25°C", "12:15 PM"));
-        // Thêm các mục dữ liệu khác...
-
-        return logItems;
-    }
+//    private List<LogItem> createSampleData() {
+//        List<LogItem> logItems = new ArrayList<>();
+//
+//        // Thêm các mục dữ liệu vào danh sách
+//        logItems.add(new LogItem(1, "Wemos", "192.168.1.1", "Light", "200 lux", "10:30 AM"));
+//        logItems.add(new LogItem(2, "Raspi", "192.168.1.2", "Humi", "40%", "11:45 AM"));
+//        logItems.add(new LogItem(3, "Wemos", "192.168.1.3", "Temp", "25°C", "12:15 PM"));
+//        // Thêm các mục dữ liệu khác...
+//
+//        return logItems;
+//    }
 }
 

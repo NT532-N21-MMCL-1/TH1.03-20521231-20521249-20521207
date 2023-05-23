@@ -9,12 +9,19 @@
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart_temperature"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="200dp" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart_humidity"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_marginTop="40dp" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_light"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        />
 
 </LinearLayout>

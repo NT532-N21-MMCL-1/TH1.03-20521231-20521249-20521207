@@ -40,6 +40,7 @@ public class ChartFragment extends Fragment {
 
     private LineChart chartTemperature;
     private BarChart chartHumidity;
+    private LineChart chartLight;
 
     public ChartFragment() {
         // Required empty public constructor
@@ -73,6 +74,7 @@ public class ChartFragment extends Fragment {
 
         chartTemperature = getView().findViewById(R.id.chart_temperature);
         chartHumidity = getView().findViewById(R.id.chart_humidity);
+        chartLight = getView().findViewById(R.id.chart_light);
 
         List<Float> temperatureData = new ArrayList<>();
         temperatureData.add(25.0f);
@@ -98,26 +100,69 @@ public class ChartFragment extends Fragment {
         humidityData.add(68f);
         humidityData.add(60f);
 
-        // ...
-
-        // Thiết kế và gán dữ liệu cho biểu đồ cột độ ẩm
         setupHumidityChart(humidityData);
 
-        ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<ApiResponse> callChart = apiService.getApi();
-        callChart.enqueue(new Callback<ApiResponse>() {
-            @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                ApiResponse apiResponse = response.body();
-                Log.d("API", apiResponse.getMessage());
-            }
+        List<Float> lightData = new ArrayList<>();
+        lightData.add(25.0f);
+        lightData.add(27.0f);
+        lightData.add(26.5f);
+        lightData.add(27.0f);
+        lightData.add(25.0f);
+        lightData.add(27.0f);
+        lightData.add(26.5f);
+        lightData.add(27.0f);
+        lightData.add(25.0f);
+        lightData.add(27.0f);
 
-            @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
-                Log.d("API", t.getMessage());
-            }
-        });
+        setupLightChart(lightData);
 
+
+
+//        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+//        Call<ApiResponse> callChart = apiService.getApi();
+//        callChart.enqueue(new Callback<ApiResponse>() {
+//            @Override
+//            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+//                ApiResponse apiResponse = response.body();
+//                Log.d("API", apiResponse.getMessage());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ApiResponse> call, Throwable t) {
+//                Log.d("API", t.getMessage());
+//            }
+//        });
+
+    }
+
+    private void setupLightChart(List<Float> lightData) {
+        List<Entry> entries = new ArrayList<>();
+
+        for (int i = 0; i < lightData.size(); i++) {
+            entries.add(new Entry(i, lightData.get(i)));
+        }
+
+        LineDataSet dataSet = new LineDataSet(entries, "Temperature");
+
+        dataSet.setColor(Color.RED);
+        dataSet.setCircleColor(Color.RED);
+        dataSet.setLineWidth(2f);
+        dataSet.setCircleRadius(4f);
+        dataSet.setDrawValues(false);
+
+        LineData lineData = new LineData(dataSet);
+
+        chartLight.setData(lineData);
+
+        // Tùy chỉnh các thuộc tính khác của biểu đồ
+        chartLight.getXAxis().setEnabled(false);
+        chartLight.getAxisRight().setEnabled(false);
+
+        Description description = new Description();
+        description.setText("Temperature Chart");
+        chartLight.setDescription(description);
+
+        chartLight.invalidate();
     }
 
     private void setupHumidityChart(List<Float> humidityData) {
@@ -152,7 +197,7 @@ public class ChartFragment extends Fragment {
             entries.add(new Entry(i, temperatureData.get(i)));
         }
 
-        LineDataSet dataSet = new LineDataSet(entries, "Temperature");
+        LineDataSet dataSet = new LineDataSet(entries, "Light");
 
         dataSet.setColor(Color.RED);
         dataSet.setCircleColor(Color.RED);
