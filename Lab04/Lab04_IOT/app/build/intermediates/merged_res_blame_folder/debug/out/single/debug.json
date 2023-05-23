@@ -24,12 +24,12 @@
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\xml_data_extraction_rules.xml.flat",
-        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\xml\\data_extraction_rules.xml"
-    },
-    {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_vector_home.xml.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\drawable\\vector_home.xml"
+    },
+    {
+        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\xml_data_extraction_rules.xml.flat",
+        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\xml\\data_extraction_rules.xml"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_thumb.xml.flat",
@@ -40,12 +40,16 @@
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\layout_fragment_humidity_chart.xml.flat",
+        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\layout\\fragment_humidity_chart.xml"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\mipmap-xhdpi_ic_launcher.webp.flat",
@@ -66,6 +70,10 @@
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_gradient_background.xml.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\drawable\\gradient_background.xml"
+    },
+    {
+        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\layout_fragment_light_chart.xml.flat",
+        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\layout\\fragment_light_chart.xml"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_track.xml.flat",
@@ -98,6 +106,10 @@
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\layout_fragment_temp_chart.xml.flat",
+        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\layout\\fragment_temp_chart.xml"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
@@ -156,12 +168,12 @@
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\drawable\\light2_image.png"
     },
     {
-        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\layout_fragment_dash_board.xml.flat",
-        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\layout\\fragment_dash_board.xml"
-    },
-    {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\layout_fragment_chart.xml.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\layout\\fragment_chart.xml"
+    },
+    {
+        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\layout_fragment_dash_board.xml.flat",
+        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\layout\\fragment_dash_board.xml"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\layout_activity_main.xml.flat",

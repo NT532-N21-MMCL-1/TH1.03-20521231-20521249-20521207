@@ -1,4 +1,4 @@
-package com.application.myapplication.Fragment;
+package com.application.myapplication.Fragment.Main;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -24,12 +24,6 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.security.KeyStore;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class MainFragment extends Fragment {

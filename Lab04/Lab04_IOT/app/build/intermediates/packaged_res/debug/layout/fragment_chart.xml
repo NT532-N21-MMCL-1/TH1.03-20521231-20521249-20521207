@@ -1,26 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Fragment.ChartFragment">
+    android:layout_margin="12dp"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    tools:context=".Fragment.Chart.ChartFragment">
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart_temperature"
+    <ImageButton
+        android:id="@+id/btn_next_chart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:contentDescription="next"
+        android:src="@drawable/baseline_navigate_next_24" />
+
+<!--    <com.github.mikephil.charting.charts.LineChart-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="500dp"-->
+<!--        android:id="@+id/switch_chart"-->
+<!--        android:layout_below="@id/btn_next_chart"/>-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/switch_chart"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="500dp"
+        android:layout_below="@+id/btn_next_chart" />
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart_humidity"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp" />
+    <!--    <com.github.mikephil.charting.charts.LineChart-->
+    <!--        android:id="@+id/chart_temperature"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_below="@+id/btn_next_chart"-->
+    <!--        android:layout_height="200dp" />-->
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart_light"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp" />
 
-</LinearLayout>
+    <!--    <com.github.mikephil.charting.charts.BarChart-->
+    <!--        android:id="@+id/chart_humidity"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:layout_marginTop="40dp" />-->
+
+    <!--    <com.github.mikephil.charting.charts.BarChart-->
+    <!--        android:id="@+id/chart_light"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:layout_marginTop="40dp" />-->
+
+</RelativeLayout>

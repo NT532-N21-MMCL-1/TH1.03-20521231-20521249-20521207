@@ -1,6 +1,30 @@
 package com.application.myapplication;
 
 public class DeviceSensor {
+    private String _id;
+    private String device_name;
+    private String device_id;
+    private float temperature;
+    private float humidity;
+    private float light;
+    private long receive_time;
+    private boolean enable;
+    private long last_connection_time;
+    private long last_disconnection_time;
+
+    public DeviceSensor(String _id, String device_name, String device_id, float temperature, float humidity, float light, long receive_time, boolean enable, long last_connection_time, long last_disconnection_time) {
+        this._id = _id;
+        this.device_name = device_name;
+        this.device_id = device_id;
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.light = light;
+        this.receive_time = receive_time;
+        this.enable = enable;
+        this.last_connection_time = last_connection_time;
+        this.last_disconnection_time = last_disconnection_time;
+    }
+
     public String get_id() {
         return _id;
     }
@@ -25,27 +49,27 @@ public class DeviceSensor {
         this.device_id = device_id;
     }
 
-    public int getTemperature() {
+    public float getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(float temperature) {
         this.temperature = temperature;
     }
 
-    public int getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
     }
 
-    public int getLight() {
+    public float getLight() {
         return light;
     }
 
-    public void setLight(int light) {
+    public void setLight(float light) {
         this.light = light;
     }
 
@@ -80,28 +104,4 @@ public class DeviceSensor {
     public void setLast_disconnection_time(long last_disconnection_time) {
         this.last_disconnection_time = last_disconnection_time;
     }
-
-    public DeviceSensor(String _id, String device_name, String device_id, int temperature, int humidity, int light, long receive_time, boolean enable, long last_connection_time, long last_disconnection_time) {
-        this._id = _id;
-        this.device_name = device_name;
-        this.device_id = device_id;
-        this.temperature = temperature;
-        this.humidity = humidity;
-        this.light = light;
-        this.receive_time = receive_time;
-        this.enable = enable;
-        this.last_connection_time = last_connection_time;
-        this.last_disconnection_time = last_disconnection_time;
-    }
-
-    private String _id;
-    private String device_name;
-    private String device_id;
-    private int temperature;
-    private int humidity;
-    private int light;
-    private long receive_time;
-    private boolean enable;
-    private long last_connection_time;
-    private long last_disconnection_time;
 }

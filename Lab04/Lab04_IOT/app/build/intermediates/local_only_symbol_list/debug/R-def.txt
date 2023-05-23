@@ -32,6 +32,7 @@ id action_dashboard
 id action_log
 id action_main
 id bottomNavigationView
+id btn_next_chart
 id btn_next_fragment
 id chart_humidity
 id chart_light
@@ -54,6 +55,7 @@ id list_view_device
 id receivedTimeTextView
 id recyclerView
 id relative_bottom_nav
+id switch_chart
 id switch_fragment
 id system_log
 id temp_info
@@ -63,10 +65,13 @@ layout activity_main
 layout fragment_chart
 layout fragment_dash_board
 layout fragment_humidity
+layout fragment_humidity_chart
 layout fragment_light
+layout fragment_light_chart
 layout fragment_log
 layout fragment_main
 layout fragment_temp
+layout fragment_temp_chart
 layout item_device
 layout item_log
 menu bottom_navigation

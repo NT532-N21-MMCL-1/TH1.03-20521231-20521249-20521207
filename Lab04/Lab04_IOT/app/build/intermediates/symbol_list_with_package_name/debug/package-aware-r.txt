@@ -2989,6 +2989,7 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btn_next_chart
 id btn_next_fragment
 id buttonPanel
 id cache_measures
@@ -3343,6 +3344,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id switch_chart
 id switch_fragment
 id system_log
 id tabMode
@@ -3547,10 +3549,13 @@ layout design_text_input_start_icon
 layout fragment_chart
 layout fragment_dash_board
 layout fragment_humidity
+layout fragment_humidity_chart
 layout fragment_light
+layout fragment_light_chart
 layout fragment_log
 layout fragment_main
 layout fragment_temp
+layout fragment_temp_chart
 layout item_device
 layout item_log
 layout m3_alert_dialog

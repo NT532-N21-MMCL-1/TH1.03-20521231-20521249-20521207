@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="12dp"
     android:background="@color/white"
     android:backgroundTint="@color/white"
-    android:layout_margin="12dp"
     android:orientation="vertical"
-    tools:context=".Fragment.MainFragment">
+    tools:context=".Fragment.Main.MainFragment">
 
     <ImageButton
         android:id="@+id/btn_next_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="next"
         android:layout_alignParentRight="true"
+        android:contentDescription="next"
         android:src="@drawable/baseline_navigate_next_24" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/switch_fragment"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:id="@+id/switch_fragment"
         android:layout_below="@id/btn_next_fragment">
 
     </androidx.cardview.widget.CardView>
@@ -29,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/switch_fragment">
+
         <TextView
             android:id="@+id/devices"
             android:layout_width="wrap_content"

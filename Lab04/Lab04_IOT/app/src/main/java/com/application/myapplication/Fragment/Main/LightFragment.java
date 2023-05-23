@@ -1,4 +1,4 @@
-package com.application.myapplication.Fragment;
+package com.application.myapplication.Fragment.Main;
 
 import android.graphics.Color;
 import android.os.Bundle;

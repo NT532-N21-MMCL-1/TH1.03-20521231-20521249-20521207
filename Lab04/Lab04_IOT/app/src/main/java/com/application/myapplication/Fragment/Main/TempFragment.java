@@ -1,4 +1,4 @@
-package com.application.myapplication.Fragment;
+package com.application.myapplication.Fragment.Main;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,13 +7,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.application.myapplication.Adapter.ApiService;
+import com.application.myapplication.ApiRetrofit;
+import com.application.myapplication.DeviceSensor;
 import com.application.myapplication.R;
 import com.ekn.gruzer.gaugelibrary.ArcGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -99,6 +109,21 @@ public class TempFragment extends Fragment {
         tempGauge.setMaxValue(40.0);
         tempGauge.setValue(30.0);
 
+        ApiService apiService = ApiRetrofit.getClient().create(ApiService.class);
+        Call<List<DeviceSensor>> deviceSensorCall = apiService.getData();
+        deviceSensorCall.enqueue(new Callback<List<DeviceSensor>>() {
+            @Override
+            public void onResponse(Call<List<DeviceSensor>> call, Response<List<DeviceSensor>> response) {
+                List<DeviceSensor> deviceSensor = response.body();
+                Log.d("API", deviceSensor.toString());
+            }
 
+            @Override
+            public void onFailure(Call<List<DeviceSensor>> call, Throwable t) {
+                Log.e("API", t.getMessage());
+            }
+        });
     }
+
+
 }

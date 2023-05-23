@@ -1,4 +1,4 @@
-package com.application.myapplication.Fragment;
+package com.application.myapplication.Fragment.Main;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.application.myapplication.R;
-import com.ekn.gruzer.gaugelibrary.ArcGauge;
 import com.ekn.gruzer.gaugelibrary.FullGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
 
@@ -99,5 +98,9 @@ public class HumidityFragment extends Fragment {
         humidityGauge.setMinValue(0.0);
         humidityGauge.setMaxValue(40.0);
         humidityGauge.setValue(30.0);
+
+
     }
+
+
 }

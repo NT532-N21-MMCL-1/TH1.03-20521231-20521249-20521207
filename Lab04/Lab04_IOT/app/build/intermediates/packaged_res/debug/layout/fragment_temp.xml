@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="12dp"
-    tools:context=".Fragment.TempFragment">
+    tools:context=".Fragment.Main.TempFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

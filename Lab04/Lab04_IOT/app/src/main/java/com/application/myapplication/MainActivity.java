@@ -1,9 +1,6 @@
 package com.application.myapplication;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,18 +9,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.application.myapplication.Fragment.DashBoardFragment;
 import com.application.myapplication.Fragment.LogFragment;
-import com.application.myapplication.Fragment.MainFragment;
-import com.application.myapplication.Fragment.ChartFragment;
+import com.application.myapplication.Fragment.Main.MainFragment;
+import com.application.myapplication.Fragment.Chart.ChartFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
