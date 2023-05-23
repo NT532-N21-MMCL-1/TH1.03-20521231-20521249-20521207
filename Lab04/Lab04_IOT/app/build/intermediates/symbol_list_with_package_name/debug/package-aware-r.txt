@@ -3005,6 +3005,7 @@ id chain
 id chain2
 id chains
 id chart_humidity
+id chart_light
 id chart_temperature
 id checkbox
 id checked
@@ -3049,9 +3050,10 @@ id deviceIdTextView
 id deviceIpTextView
 id deviceNameTextView
 id device_image
+id device_last_connect
+id device_last_disconnect
 id device_name
 id device_status
-id device_uptime
 id devices
 id dialog_button
 id dimensions
@@ -3551,6 +3553,7 @@ layout fragment_log
 layout fragment_main
 layout fragment_temp
 layout item_device
+layout item_graph
 layout item_log
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
