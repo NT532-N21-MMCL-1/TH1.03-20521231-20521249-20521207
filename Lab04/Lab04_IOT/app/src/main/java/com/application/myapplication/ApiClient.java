@@ -12,7 +12,11 @@ public class ApiClient {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     .baseUrl("http://10.45.3.204:8000")
+=======
+                    .baseUrl("http://127.0.0.1:8000")
+>>>>>>> parent of ca619ed (connect retrofit to fastapi successfully)
 =======
                     .baseUrl("http://127.0.0.1:8000")
 >>>>>>> parent of ca619ed (connect retrofit to fastapi successfully)

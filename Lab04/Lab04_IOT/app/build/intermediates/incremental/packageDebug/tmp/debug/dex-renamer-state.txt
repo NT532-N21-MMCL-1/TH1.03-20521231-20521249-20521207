@@ -1,7 +1,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #Tue May 23 21:13:42 ICT 2023
+=======
+#Mon May 22 10:04:13 ICT 2023
+>>>>>>> parent of ca619ed (connect retrofit to fastapi successfully)
 =======
 #Mon May 22 10:04:13 ICT 2023
 >>>>>>> parent of ca619ed (connect retrofit to fastapi successfully)
