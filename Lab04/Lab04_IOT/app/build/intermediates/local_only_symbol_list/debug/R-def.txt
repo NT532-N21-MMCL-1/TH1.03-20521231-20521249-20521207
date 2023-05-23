@@ -34,6 +34,7 @@ id action_main
 id bottomNavigationView
 id btn_next_fragment
 id chart_humidity
+id chart_light
 id chart_temperature
 id deviceIdTextView
 id deviceIpTextView

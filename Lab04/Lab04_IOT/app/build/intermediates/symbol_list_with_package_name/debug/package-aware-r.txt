@@ -3005,6 +3005,7 @@ id chain
 id chain2
 id chains
 id chart_humidity
+id chart_light
 id chart_temperature
 id checkbox
 id checked
