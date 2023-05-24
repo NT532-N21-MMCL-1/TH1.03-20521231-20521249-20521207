@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.application.myapplication.app-merged_res-6:/layout_item_device.xml.flat",
+        "source": "com.application.myapplication.app-main-8:/layout/item_device.xml"
+    },
+    {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_wemos_image.png.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\drawable\\wemos_image.png"
     },
@@ -24,12 +28,12 @@
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_vector_home.xml.flat",
-        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\drawable\\vector_home.xml"
-    },
-    {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\xml_data_extraction_rules.xml.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_vector_home.xml.flat",
+        "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\drawable\\vector_home.xml"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\drawable_thumb.xml.flat",
@@ -150,10 +154,6 @@
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-main-8:\\mipmap-xxhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.application.myapplication.app-merged_res-6:/layout_fragment_chart.xml.flat",
-        "source": "com.application.myapplication.app-main-8:/layout/fragment_chart.xml"
     },
     {
         "merged": "D:\\MOBILE\\Open Remote\\.gradle\\daemon\\7.4\\com.application.myapplication.app-merged_res-6:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",

@@ -8,14 +8,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.application.myapplication.DeviceSensor;
 import com.application.myapplication.R;
 
 import java.util.List;
 
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
-    private List<LogItem> logItems;
+    private List<DeviceSensor> logItems;
 
-    public LogAdapter(List<LogItem> logItems) {
+    public LogAdapter(List<DeviceSensor> logItems) {
         this.logItems = logItems;
     }
 
@@ -28,11 +29,11 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull LogAdapter.LogViewHolder holder, int position) {
-        LogItem logItem = logItems.get(position);
-        holder.deviceIdTextView.setText(String.valueOf(logItem.getDeviceId()));
-        holder.deviceNameTextView.setText(logItem.getDeviceName());
-        holder.deviceIpTextView.setText(logItem.getDeviceIp());
-        holder.valueNameTextView.setText(logItem.getValueName());
+        DeviceSensor logItem = logItems.get(position);
+        holder.deviceIdTextView.setText(String.valueOf(logItem.get_id()));
+        holder.deviceNameTextView.setText(logItem.getDevice_name());
+//        holder.deviceIpTextView.setText(logItem.gegetDeviceIp());
+//        holder.valueNameTextView.setText(logItem.nagetValueName());
 //        holder.valueTextView.setText(logItem.getValue());
 //        holder.receivedTimeTextView.setText(logItem.getReceivedTime());
     }

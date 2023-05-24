@@ -1,18 +1,7 @@
 package com.application.myapplication;
 
 public class DeviceSensor {
-    private String _id;
-    private String device_name;
-    private String device_id;
-    private float temperature;
-    private float humidity;
-    private float light;
-    private long receive_time;
-    private boolean enable;
-    private long last_connection_time;
-    private long last_disconnection_time;
-
-    public DeviceSensor(String _id, String device_name, String device_id, float temperature, float humidity, float light, long receive_time, boolean enable, long last_connection_time, long last_disconnection_time) {
+    public DeviceSensor(String _id, String device_name, String device_id, float temperature, float humidity, float light, long receive_time, String enable, String last_connection_time, String last_disconnection_time) {
         this._id = _id;
         this.device_name = device_name;
         this.device_id = device_id;
@@ -24,6 +13,17 @@ public class DeviceSensor {
         this.last_connection_time = last_connection_time;
         this.last_disconnection_time = last_disconnection_time;
     }
+
+    private String _id;
+    private String device_name;
+    private String device_id;
+    private float temperature;
+    private float humidity;
+    private float light;
+    private long receive_time;
+    private String enable;
+    private String last_connection_time;
+    private String last_disconnection_time;
 
     public String get_id() {
         return _id;
@@ -81,27 +81,27 @@ public class DeviceSensor {
         this.receive_time = receive_time;
     }
 
-    public boolean isEnable() {
+    public String getEnable() {
         return enable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setEnable(String enable) {
         this.enable = enable;
     }
 
-    public long getLast_connection_time() {
+    public String getLast_connection_time() {
         return last_connection_time;
     }
 
-    public void setLast_connection_time(long last_connection_time) {
+    public void setLast_connection_time(String last_connection_time) {
         this.last_connection_time = last_connection_time;
     }
 
-    public long getLast_disconnection_time() {
+    public String getLast_disconnection_time() {
         return last_disconnection_time;
     }
 
-    public void setLast_disconnection_time(long last_disconnection_time) {
+    public void setLast_disconnection_time(String last_disconnection_time) {
         this.last_disconnection_time = last_disconnection_time;
     }
 }

@@ -3051,9 +3051,10 @@ id deviceIdTextView
 id deviceIpTextView
 id deviceNameTextView
 id device_image
+id device_last_connected
+id device_last_disconnected
 id device_name
 id device_status
-id device_uptime
 id devices
 id dialog_button
 id dimensions
