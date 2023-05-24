@@ -12,8 +12,8 @@ public interface ApiService {
     @GET("/device")
     Call<List<DeviceSensor>> getData();
     @GET("/device/{device_id}")
-    Call<List<DeviceSensor>> getData_byID(@Path("deviceID") String deviceID);
-    @GET("/get_last_device/{device_id}")
-    Call<List<DeviceSensor>> getlastData_byID(@Path("deviceID") String deviceID);
+    Call<List<DeviceSensor>> getData_byID(@Path("device_id") String DeviceID);
+    @GET("/device/get_last_device/{device_id}")
+    Call<List<DeviceSensor>> getlastData_byID(@Path("device_id") String DeviceID);
 
 }

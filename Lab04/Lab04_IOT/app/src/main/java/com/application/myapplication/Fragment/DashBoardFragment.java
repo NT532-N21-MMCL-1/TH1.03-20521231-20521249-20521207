@@ -1,8 +1,7 @@
 package com.application.myapplication.Fragment;
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +13,10 @@ import androidx.fragment.app.Fragment;
 
 import com.application.myapplication.Adapter.ApiService;
 import com.application.myapplication.Adapter.DashboardAdapter;
-import com.application.myapplication.Adapter.Device;
-import com.application.myapplication.Adapter.DeviceAdapter;
 import com.application.myapplication.ApiRetrofit;
 import com.application.myapplication.DeviceSensor;
-import com.application.myapplication.MyDbHelper;
 import com.application.myapplication.R;
-import com.application.myapplication.SensorData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -44,7 +38,6 @@ public class DashBoardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         listView = view.findViewById(R.id.list_view_device);
 
-//        List<Device> devices = new ArrayList<>();
 //        devices.add(new Device("Wemos", "Connected", "10 minutes", R.drawable.wemos_image));
 //        devices.add(new Device("Raspberry Pi", "Disconnected", "2 hours", R.drawable.rpi_image));
 //        devices.add(new Device("Wemos", "Connected", "10 minutes", R.drawable.wemos_image));
@@ -58,30 +51,100 @@ public class DashBoardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ApiService service = ApiRetrofit.getClient().create(ApiService.class);
-        Call<List<DeviceSensor>> call = service.getData();
+        Call<List<DeviceSensor>> call = service.getData_byID("123");
+        Call<List<DeviceSensor>> call1 = service.getData_byID("1233");
+
+
+//        List<Device> devices = new ArrayList<>();
+
+
+
+//         Call<List<DeviceSensor>> call = service.getData();
+     // Call<List<DeviceSensor>> call= service.getData_byID("1233");
+
         call.enqueue(new Callback<List<DeviceSensor>>() {
             @Override
             public void onResponse(Call<List<DeviceSensor>> call, Response<List<DeviceSensor>> response) {
 //                if (response.isSuccessful()) {
 //                    List<DeviceSensor> sensorDataList = response.body();
 //
-//                    if (!sensorDataList.isEmpty()) {
-//                        DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
-//                        String lastID = lastSensorData.getDevice_id();
 //                    // Hiển thị dữ liệu lên ListView
 //                    dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
 //                    listView.setAdapter(dashboardAdapter);
 //                } else {
 //                    // Xử lý lỗi khi yêu cầu thất bại
-//
 //                }
-            }
+                if (response.isSuccessful()) {
+                    List<DeviceSensor> sensorDataList = response.body();
 
+                    if (!sensorDataList.isEmpty()) {
+                        DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
+                        String lastID = lastSensorData.getDevice_id();
+                        // Hiển thị dữ liệu lên ListView
+                        dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
+                        listView.setAdapter(dashboardAdapter);
+                    } else {
+                        // Xử lý lỗi khi yêu cầu thất bại
+                    }
+                }
+            }
             @Override
             public void onFailure(Call<List<DeviceSensor>> call, Throwable t) {
+                Log.e("api_respone", t.getMessage());
 
             }
         });
+        call1.enqueue(new Callback<List<DeviceSensor>>() {
+            @Override
+            public void onResponse(Call<List<DeviceSensor>> call, Response<List<DeviceSensor>> response) {
+//                if (response.isSuccessful()) {
+//                    List<DeviceSensor> sensorDataList = response.body();
+//
+//                    // Hiển thị dữ liệu lên ListView
+//                    dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
+//                    listView.setAdapter(dashboardAdapter);
+//                } else {
+//                    // Xử lý lỗi khi yêu cầu thất bại
+//                }
+                if (response.isSuccessful()) {
+                    List<DeviceSensor> sensorDataList = response.body();
 
+                    if (!sensorDataList.isEmpty()) {
+                        DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
+                        String lastID = lastSensorData.getDevice_id();
+                        // Hiển thị dữ liệu lên ListView
+                        dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
+                        listView.setAdapter(dashboardAdapter);
+                    } else {
+                        // Xử lý lỗi khi yêu cầu thất bại
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<List<DeviceSensor>> call, Throwable t) {
+                Log.e("api_respone", t.getMessage());
+
+            }
+        });
+//        call1.enqueue(new Callback<List<DeviceSensor>>() {
+//            @Override
+//            public void onResponse(Call<List<DeviceSensor>> call, Response<List<DeviceSensor>> response) {
+//                        if (response.isSuccessful()) {
+//                    List<DeviceSensor> sensorDataList = response.body();
+//
+//                    // Hiển thị dữ liệu lên ListView
+//                    dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
+//                    listView.setAdapter(dashboardAdapter);
+//                } else {
+//
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<DeviceSensor>> call, Throwable t) {
+//
+//            }
+//        });
     }
 }
