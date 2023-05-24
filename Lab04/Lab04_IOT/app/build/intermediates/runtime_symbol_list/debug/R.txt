@@ -3050,10 +3050,9 @@ int id deviceIdTextView 0x7f0800a9
 int id deviceIpTextView 0x7f0800aa
 int id deviceNameTextView 0x7f0800ab
 int id device_image 0x7f0800ac
-int id device_last_connected 0x7f08021e
-int id device_last_disconnected 0x7f08021f
-int id device_name 0x7f0800ad
-int id device_status 0x7f0800ae
+int id device_last_connected 0x7f0800ad
+int id device_last_disconnected 0x7f0800ae
+int id device_name 0x7f0800af
 int id devices 0x7f0800b0
 int id dialog_button 0x7f0800b1
 int id dimensions 0x7f0800b2

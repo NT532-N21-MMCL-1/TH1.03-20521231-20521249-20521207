@@ -62,15 +62,19 @@ public class DashBoardFragment extends Fragment {
         call.enqueue(new Callback<List<DeviceSensor>>() {
             @Override
             public void onResponse(Call<List<DeviceSensor>> call, Response<List<DeviceSensor>> response) {
-                if (response.isSuccessful()) {
-                    List<DeviceSensor> sensorDataList = response.body();
-
-                    // Hiển thị dữ liệu lên ListView
-                    dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
-                    listView.setAdapter(dashboardAdapter);
-                } else {
-                    // Xử lý lỗi khi yêu cầu thất bại
-                }
+//                if (response.isSuccessful()) {
+//                    List<DeviceSensor> sensorDataList = response.body();
+//
+//                    if (!sensorDataList.isEmpty()) {
+//                        DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
+//                        String lastID = lastSensorData.getDevice_id();
+//                    // Hiển thị dữ liệu lên ListView
+//                    dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
+//                    listView.setAdapter(dashboardAdapter);
+//                } else {
+//                    // Xử lý lỗi khi yêu cầu thất bại
+//
+//                }
             }
 
             @Override

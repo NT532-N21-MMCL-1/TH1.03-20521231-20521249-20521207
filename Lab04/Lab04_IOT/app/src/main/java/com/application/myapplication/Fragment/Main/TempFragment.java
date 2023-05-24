@@ -19,58 +19,14 @@ import com.application.myapplication.R;
 import com.ekn.gruzer.gaugelibrary.ArcGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TempFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class TempFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public TempFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TempFragment newInstance(String param1, String param2) {
-        TempFragment fragment = new TempFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +36,7 @@ public class TempFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -114,8 +71,39 @@ public class TempFragment extends Fragment {
         deviceSensorCall.enqueue(new Callback<List<DeviceSensor>>() {
             @Override
             public void onResponse(Call<List<DeviceSensor>> call, Response<List<DeviceSensor>> response) {
-                List<DeviceSensor> deviceSensor = response.body();
-                Log.d("API", deviceSensor.toString());
+//                if (response.isSuccessful()) {
+//                    List<DeviceSensor> sensorDataList = response.body();
+//
+//                    // Hiển thị dữ liệu lên ArcGauge
+//                    if (!sensorDataList.isEmpty()) {
+//                        DeviceSensor sensorData = sensorDataList.get(0);
+//                        float temperature = sensorData.getTemperature();
+//                        float humidity = sensorData.getHumidity();
+//
+//                        // Sử dụng dữ liệu nhiệt độ và độ ẩm để cập nhật ArcGauge
+//                        tempGauge.setValue(temperature);
+////                        arcGauge.setHumidity(humidity);
+//                    }
+//                } else {
+//                    // Xử lý lỗi khi yêu cầu thất bại
+//                }
+
+                if (response.isSuccessful()) {
+                    List<DeviceSensor> sensorDataList = response.body();
+
+                    if (!sensorDataList.isEmpty()) {
+                        DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
+                        float temperature = lastSensorData.getTemperature();
+                        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                        String roundedTemperature = decimalFormat.format(temperature);
+                        tempGauge.setValue(Double.parseDouble(roundedTemperature));
+                        // Hiển thị nhiệt độ
+//                        tetemperatureTextView.setText("Temperature: " + temperature);
+                    }
+                } else {
+                    // Xử lý lỗi khi yêu cầu thất bại
+                }
+
             }
 
             @Override
@@ -123,6 +111,8 @@ public class TempFragment extends Fragment {
                 Log.e("API", t.getMessage());
             }
         });
+
+
     }
 
 

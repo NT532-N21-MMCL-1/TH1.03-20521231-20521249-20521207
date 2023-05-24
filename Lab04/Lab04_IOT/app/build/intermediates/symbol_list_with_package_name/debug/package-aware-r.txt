@@ -3054,7 +3054,6 @@ id device_image
 id device_last_connected
 id device_last_disconnected
 id device_name
-id device_status
 id devices
 id dialog_button
 id dimensions

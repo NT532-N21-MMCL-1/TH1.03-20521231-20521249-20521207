@@ -44,7 +44,6 @@ id device_image
 id device_last_connected
 id device_last_disconnected
 id device_name
-id device_status
 id devices
 id fragment_container
 id humidity_info
