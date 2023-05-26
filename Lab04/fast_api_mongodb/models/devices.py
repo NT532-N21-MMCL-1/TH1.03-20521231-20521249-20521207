@@ -4,10 +4,7 @@ class Devices(BaseModel):
     device_name :str
     device_id: str 
     device_ip: str 
-    temperature: float
-    humidity: float
-    light: float 
-    receive_time: int
+    data_received :Data
     enable: str 
     device_id: str 
     last_connection_time: str
