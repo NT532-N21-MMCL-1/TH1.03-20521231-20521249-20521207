@@ -35,25 +35,12 @@ def check_device_status():
                 )
         
         time.sleep(60)  # Đợi 1 phút để kiểm tra lại
+
 #hàm này là để get tất cả các tên của device
 @devices.get('/device')
 async def find_all_devices():
     return serializeList(conn.local.devices.find())
 
-# @devices.get('/{id}')
-# async def find_one_device(id):
-#     return serializeDict(conn.local.devices.find_one({"_id":ObjectId(id)}))
-
-@devices.get('/device/{device_id}')
-async def get_device_byid(device_id):
-    devices = conn.local.devices.find({"device_id": device_id})
-    return [serializeDict(device) for device in devices]
-
-# #Check thiet bi cuoi cung dang nhap vao
-# @devices.get('/device/get_last_device/{device_id}')
-# async def get_last_device(device_id):
-    # device = conn.local.devices.find_one({"device_id": device_id})
-    # return serializeDict(device)
 
 #hàm này chỉ để create 1 device mới thôi 
 @devices.post('/device')
@@ -83,6 +70,10 @@ async def update_device(device_id,device: Devices):
     devices = conn.local.devices.find({"device_id": device_id})
     return [serializeDict(device) for device in devices]
 
+#goi de ve bang
+@devices.get('/data/{device_id}')
+async def get_data(device_id):
+    return serializeList(conn.local.device_data.find({"device_id":device_id}))
 # @devices.delete('/device/{device_id}')
 # async def delete_device(id,devices: Devices):
 
