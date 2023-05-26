@@ -9,3 +9,4 @@ class Devices(BaseModel):
     device_id: str 
     last_connection_time: str
     last_disconnection_time: str
+    create_time: int 

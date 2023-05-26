@@ -5,7 +5,7 @@ import threading
 from fastapi import APIRouter
 from models.data import Data 
 from models.devices import Devices 
-from config.db import conn , collection
+from config.db import conn 
 from schemas.devices import serializeDict, serializeList
 from bson import ObjectId
 from fastapi.responses import JSONResponse
@@ -35,7 +35,7 @@ def check_device_status():
                 )
         
         time.sleep(60)  # Đợi 1 phút để kiểm tra lại
-#hàm Devices
+#hàm này là để get tất cả các tên của device
 @devices.get('/device')
 async def find_all_devices():
     return serializeList(conn.local.devices.find())
@@ -43,30 +43,38 @@ async def find_all_devices():
 # @devices.get('/{id}')
 # async def find_one_device(id):
 #     return serializeDict(conn.local.devices.find_one({"_id":ObjectId(id)}))
- 
+
 @devices.get('/device/{device_id}')
 async def get_device_byid(device_id):
     devices = conn.local.devices.find({"device_id": device_id})
     return [serializeDict(device) for device in devices]
 
-#Check thiet bi cuoi cung dang nhap vao
-@devices.get('/device/get_last_device/{device_id}')
-async def get_last_device(device_id):
-    device = conn.local.devices.find_one({"device_id": device_id})
-    return serializeDict(device)
+# #Check thiet bi cuoi cung dang nhap vao
+# @devices.get('/device/get_last_device/{device_id}')
+# async def get_last_device(device_id):
+    # device = conn.local.devices.find_one({"device_id": device_id})
+    # return serializeDict(device)
 
+#hàm này chỉ để create 1 device mới thôi 
 @devices.post('/device')
 async def create_device(device: Devices):
-    device.data_received.receive_time = datetime.datetime.now()
+    #thời gian khởi tạo một device mới
+    device.create_time = datetime.datetime.now()
+    #lưu vào bảng device
     conn.local.devices.insert_one(device.dict())
+    #return lại nhưng device có trong bảng
     return  serializeList(conn.local.devices.find())
 
+#hàm này để cập nhật giá trị của device thôi
 @devices.put('/device/{device_id}')
-async def update_device(id,devices: Devices):
+async def update_device(device_id,device: Devices):
+    
+    update_data =  device.data_received.dict(exclude_unset=True)
     conn.local.devices.find_one_and_update({"device_id":device_id},{
-        "$set":dict(devices)
+        "$set": {"data_received": update_data}
     })
-    return serializeDict(conn.local.devices.find_one({"device_id":device_id}))
+    devices = conn.local.devices.find({"device_id": device_id})
+    return [serializeDict(device) for device in devices]
 
 # @devices.delete('/device/{device_id}')
 # async def delete_device(id,devices: Devices):
