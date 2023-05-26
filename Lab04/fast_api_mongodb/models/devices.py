@@ -5,7 +5,7 @@ class Devices(BaseModel):
     device_id: str 
     device_ip: str 
     data_received :Data
-    enable: str 
+    enable: bool 
     device_id: str 
     last_connection_time: str
     last_disconnection_time: str
