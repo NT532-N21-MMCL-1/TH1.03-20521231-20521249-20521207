@@ -65,14 +65,21 @@ async def create_device(device: Devices):
     #return lại nhưng device có trong bảng
     return  serializeList(conn.local.devices.find())
 
-#hàm này để cập nhật giá trị của device thôi
+#hàm này để cập nhật giá trị của device và thêm data vào bảng deivce data
 @devices.put('/device/{device_id}')
 async def update_device(device_id,device: Devices):
-    
+    #thoi gian nhan duoc data
+    device.data_received.receive_time = datetime.datetime.now()
+    device.data_received.device_id = device_id
+    #update device database devices
     update_data =  device.data_received.dict(exclude_unset=True)
     conn.local.devices.find_one_and_update({"device_id":device_id},{
         "$set": {"data_received": update_data}
+        
     })
+    #them data vao database devcie_data
+    conn.local.device_data.insert_one(update_data)
+    #ham return data moi duoc update
     devices = conn.local.devices.find({"device_id": device_id})
     return [serializeDict(device) for device in devices]
 
