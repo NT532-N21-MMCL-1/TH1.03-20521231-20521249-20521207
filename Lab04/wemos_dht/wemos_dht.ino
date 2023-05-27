@@ -8,12 +8,12 @@
 #include <PubSubClient.h>
 
 // Khai bao ssid va password de ket noi wifi
-const char* ssid = "vivo T1 5G";
-const char* password = "22222222";
+const char* ssid = "BM";
+const char* password = "utmailam";
 
 // Khai bao ServerAddress de ket noi voi FastAPI
 // Khai bao mqttServer va port de ket noi toi MQTT Broker
-const char* serverAddress = "http://192.168.147.250:8000/device";
+const char* serverAddress = "http://192.168.0.106:8000/device";
 const char* mqttServer = "192.168.147.250";
 const int mqttPort = 1883;
 
@@ -121,7 +121,7 @@ void loop() {
   String ip_device = ipString;
 
   updateDeviceInfo(temperature, humidity, light, ip_device, name_device, id_device);
-  delay(5000);
+  delay(1000);
   client.loop();
 }
 
@@ -172,23 +172,6 @@ void updateDeviceInfo(float temperature, float humidity, float light, String ip_
   doc["last_connection_time"] = "true";
   doc["last_disconnection_time"] = "true";
   doc["create_time"] = "123";
-  // doc["enable"] = connected;
-
-    // doc["device_name"] = "wemos";
-  // doc["device_id"] = "123";
-  // doc["device_ip"] = "123.312.31.23";
-
-  // put["data_received"]["device_id"] = "123";
-  // put["data_received"]["temperature"] = "1";
-  // put["data_received"]["humidity"] = "2";
-  // put["data_received"]["light"] = "23";
-  // put["data_received"]["receive_time"] = "2";
-  // put["data_received"]["receive_time_ts"] = "3";
-
-  // put["enable"] = "true";
-  // put["last_connection_time"] = "true";
-  // put["last_disconnection_time"] = "true";
-  // put["create_time"] = "true";
 
   // Chuyển đổi JSON payload thành chuỗi
   String payloadString;
