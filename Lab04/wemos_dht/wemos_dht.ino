@@ -13,7 +13,7 @@ const char* password = "utmailam";
 
 // Khai bao ServerAddress de ket noi voi FastAPI
 // Khai bao mqttServer va port de ket noi toi MQTT Broker
-const char* serverAddress = "http://192.168.0.106:8000/device";
+const char* serverAddress = "http://192.168.0.106:8000/device/45678";
 const char* mqttServer = "192.168.147.250";
 const int mqttPort = 1883;
 
@@ -24,6 +24,7 @@ const char* topic_led_2 = "mmcl/nhom3/led/n2";
 // Khai bao device name va id cho thiet bi 
 const char* name_device = "Wemos 2";
 const char* id_device = "45678";
+
 
 BH1750 LightSensor;
 
@@ -188,7 +189,7 @@ void updateDeviceInfo(float temperature, float humidity, float light, String ip_
   HTTPClient http;
   http.begin(espClient, serverAddress);
   http.addHeader("Content-Type", "application/json");
-  int httpResponseCode = http.POST(payloadString);
+  int httpResponseCode = http.PUT(payloadString);
   Serial.print("httpResponseCode: ");
   Serial.println(httpResponseCode);
 
