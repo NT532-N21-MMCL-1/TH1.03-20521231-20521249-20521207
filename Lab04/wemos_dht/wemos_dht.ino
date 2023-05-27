@@ -13,8 +13,8 @@ const char* password = "22222222";
 
 // Khai bao ServerAddress de ket noi voi FastAPI
 // Khai bao mqttServer va port de ket noi toi MQTT Broker
-const char* serverAddress = "http://192.168.0.101:8000/device";
-const char* mqttServer = "35.222.45.221";
+const char* serverAddress = "http://192.168.147.250:8000/device";
+const char* mqttServer = "192.168.147.250";
 const int mqttPort = 1883;
 
 // Khai bao topic cho MQTT
@@ -33,19 +33,21 @@ PubSubClient client(espClient);
 const int DHT_PIN = D4;   
 const int DHT_TYPE = DHT11; 
 DHT dht(DHT_PIN, DHT_TYPE);
+
 String myip;
+
 const int ledPin1 = D5;
 const int ledPin2 = D6;  
 
-bool connected = false;  
+// bool connected = false;  
 
 void setup() {
   Serial.begin(9600);
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
 
-  Wire.begin();
-  LightSensor.begin();
+  // Wire.begin();
+  // LightSensor.begin();
 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -56,35 +58,36 @@ void setup() {
   // connected = true;
   Serial.println("Connected to WiFi");
 
-  client.setServer(mqttServer, mqttPort);
-  while (!client.connected()) {
-    if (client.connect("WemosD1Client")) {
-      Serial.println("Connected to MQTT Broker");
-    } else {
-      delay(1000);
-    }
-  }
-  client.subscribe(topic_led_1);
-  client.subscribe(topic_led_2);
-
-  client.setCallback(callback);
+  // client.setServer(mqttServer, mqttPort);
+  // while (!client.connected()) {
+  //   if (client.connect("WemosD1Client")) {
+  //     Serial.println("Connected to MQTT Broker");
+  //   } else {
+  //     delay(1000);
+  //   }
+  // }
+  // client.subscribe(topic_led_1);
+  // Serial.println("Subcribed to topic led 1"); 
+  // client.subscribe(topic_led_2);
+  // Serial.println("Subscribed to topic led 2"); 
+  // client.setCallback(callback);
 }
 
 void loop() {
-  if (!client.connected()) {
-    connected = true;
-    Serial.println("Connected to WiFi");
-    while (!client.connected()) {
-      if (client.connect("WemosD1Client")) {
-        Serial.println("Connected to MQTT Broker");
-        client.subscribe(topic_led_1);
-        client.subscribe(topic_led_2);
+  // if (!client.connected()) {
+  //   // connected = true;
+  //   Serial.println("Connected to WiFi");
+  //   while (!client.connected()) {
+  //     if (client.connect("WemosD1Client")) {
+  //       Serial.println("Connected to MQTT Broker");
+  //       client.subscribe(topic_led_1);
+  //       client.subscribe(topic_led_2);
 
-      } else {
-        delay(1000);
-      }
-    }
-  }
+  //     } else {
+  //       delay(1000);
+  //     }
+  //   }
+  // }
 
   float temperature = dht.readTemperature();
   Serial.print("Temp: ");
@@ -115,7 +118,9 @@ void loop() {
   String yourIP = "Địa chỉ IP của thiết bị là: " + ipString;
   Serial.println(yourIP);
 
-  updateDeviceInfo(temperature, humidity, light, yourIP, name_device, id_device);
+  String ip_device = ipString;
+
+  updateDeviceInfo(temperature, humidity, light, ip_device, name_device, id_device);
   delay(5000);
   client.loop();
 }
@@ -147,33 +152,62 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 }
 
-void updateDeviceInfo(float temperature, float humidity, float light, String yourIP, const char* name_device, const char* id_device) {
+void updateDeviceInfo(float temperature, float humidity, float light, String ip_device, const char* name_device, const char* id_device) {
   // Tạo JSON payload
   StaticJsonDocument<256> doc;
+  // StaticJsonDocument<256> put;
 
   doc["device_name"] = name_device;
   doc["device_id"] = id_device;
-  doc["device_ip"] = yourIP;
-  // name value
-  // value
-  // timestamp
+  doc["device_ip"] = ip_device;
 
-  //for graph
-  doc["temperature"] = temperature;
-  doc["humidity"] = humidity;
-  doc["light"] = light;
+  doc["data_received"]["device_id"] = id_device;
+  doc["data_received"]["temperature"] = "0";
+  doc["data_received"]["humidity"] = "0";
+  doc["data_received"]["light"] = light;
+  doc["data_received"]["receive_time"] = "2";
+  doc["data_received"]["receive_time_ts"] = "3";
 
+  doc["enable"] = "true";
+  doc["last_connection_time"] = "true";
+  doc["last_disconnection_time"] = "true";
+  doc["create_time"] = "123";
   // doc["enable"] = connected;
+
+    // doc["device_name"] = "wemos";
+  // doc["device_id"] = "123";
+  // doc["device_ip"] = "123.312.31.23";
+
+  // put["data_received"]["device_id"] = "123";
+  // put["data_received"]["temperature"] = "1";
+  // put["data_received"]["humidity"] = "2";
+  // put["data_received"]["light"] = "23";
+  // put["data_received"]["receive_time"] = "2";
+  // put["data_received"]["receive_time_ts"] = "3";
+
+  // put["enable"] = "true";
+  // put["last_connection_time"] = "true";
+  // put["last_disconnection_time"] = "true";
+  // put["create_time"] = "true";
 
   // Chuyển đổi JSON payload thành chuỗi
   String payloadString;
   serializeJson(doc, payloadString);
+  Serial.print("payloadString: ");
+  Serial.println(payloadString);
+
+  // String payloadString;
+  // serializeJson(doc, payloadString);
+  // Serial.print("payloadString: ");
+  // Serial.println(payloadString);
 
   // Gửi POST request tới server
   HTTPClient http;
   http.begin(espClient, serverAddress);
   http.addHeader("Content-Type", "application/json");
   int httpResponseCode = http.POST(payloadString);
+  Serial.print("httpResponseCode: ");
+  Serial.println(httpResponseCode);
 
   if (httpResponseCode > 0) {
     String response = http.getString();
