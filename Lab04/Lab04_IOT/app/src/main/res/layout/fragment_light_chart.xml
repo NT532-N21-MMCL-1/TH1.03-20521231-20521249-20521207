@@ -9,17 +9,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Light Chart"
-        android:textSize="32sp"
-        android:textColor="@color/extra_blue"
-        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="12dp"
-        android:layout_gravity="center_horizontal"/>
+        android:text="@string/light_chart"
+        android:textColor="@color/extra_blue"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart_light"
         android:layout_width="match_parent"
-        android:layout_below="@+id/btn_next_chart"
-        android:layout_height="400dp" />
+        android:layout_height="450dp"
+        android:layout_marginTop="50dp" />
 
 </LinearLayout>

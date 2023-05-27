@@ -6,6 +6,8 @@
 #include <ArduinoJson.h>
 #include <DHT.h>
 #include <PubSubClient.h>
+// #include <WebSocketsClient.h>
+
 
 // Khai bao ssid va password de ket noi wifi
 const char* ssid = "BM";
@@ -13,7 +15,7 @@ const char* password = "utmailam";
 
 // Khai bao ServerAddress de ket noi voi FastAPI
 // Khai bao mqttServer va port de ket noi toi MQTT Broker
-const char* serverAddress = "http://192.168.0.106:8000/device";
+const char* serverAddress = "http://192.168.0.106:8000/device/123";
 const char* mqttServer = "192.168.147.250";
 const int mqttPort = 1883;
 
@@ -23,7 +25,7 @@ const char* topic_led_2 = "mmcl/nhom3/led/n2";
 
 // Khai bao device name va id cho thiet bi 
 const char* name_device = "Wemos 2";
-const char* id_device = "45678";
+const char* id_device = "123";
 
 BH1750 LightSensor;
 
@@ -103,24 +105,7 @@ void loop() {
 
   float light = 0;
 
-  IPAddress localIP = WiFi.localIP();
-  // Chuyển đổi địa chỉ IP thành chuỗi
-  String ipString = "";
-  ipString += String(localIP[0]);
-  ipString += ".";
-  ipString += String(localIP[1]);
-  ipString += ".";
-  ipString += String(localIP[2]);
-  ipString += ".";
-  ipString += String(localIP[3]);
-
-  // Gán địa chỉ IP vào chuỗi
-  String yourIP = "Địa chỉ IP của thiết bị là: " + ipString;
-  Serial.println(yourIP);
-
-  String ip_device = ipString;
-
-  updateDeviceInfo(temperature, humidity, light, ip_device, name_device, id_device);
+  updateDeviceInfo(temperature, humidity, light, name_device, id_device);
   delay(1000);
   client.loop();
 }
@@ -152,14 +137,14 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 }
 
-void updateDeviceInfo(float temperature, float humidity, float light, String ip_device, const char* name_device, const char* id_device) {
+void updateDeviceInfo(float temperature, float humidity, float light, const char* name_device, const char* id_device) {
   // Tạo JSON payload
   StaticJsonDocument<256> doc;
   // StaticJsonDocument<256> put;
 
   doc["device_name"] = name_device;
   doc["device_id"] = id_device;
-  doc["device_ip"] = ip_device;
+  doc["device_ip"] = WiFi.localIP().toString();
 
   doc["data_received"]["device_id"] = id_device;
   doc["data_received"]["temperature"] = "0";
@@ -188,7 +173,7 @@ void updateDeviceInfo(float temperature, float humidity, float light, String ip_
   HTTPClient http;
   http.begin(espClient, serverAddress);
   http.addHeader("Content-Type", "application/json");
-  int httpResponseCode = http.POST(payloadString);
+  int httpResponseCode = http.PUT(payloadString);
   Serial.print("httpResponseCode: ");
   Serial.println(httpResponseCode);
 

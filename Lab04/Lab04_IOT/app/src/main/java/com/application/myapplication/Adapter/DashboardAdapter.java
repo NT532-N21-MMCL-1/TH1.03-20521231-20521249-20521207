@@ -49,17 +49,17 @@ public class DashboardAdapter extends ArrayAdapter<DeviceSensor> {
         lastConnectedTextView = itemView.findViewById(R.id.device_last_connected);
         lastDisconnectedTextView = itemView.findViewById(R.id.device_last_disconnected);
 
-        nameTextView.setText(sensorData.getDevice_name());
-//        statusTextView.setText(sensorData.getEnable());
-        lastConnectedTextView.setText(sensorData.getLast_connection_time());
-        lastDisconnectedTextView.setText(sensorData.getLast_disconnection_time());
-
-        if(sensorData.getEnable() == "true"){
-            lastConnectedTextView.setTextColor(Color.GREEN);
-        } else {
-            lastConnectedTextView.setTextColor(Color.RED);
-        }
-        lastDisconnectedTextView.setTextColor(Color.RED);
+//        nameTextView.setText(sensorData.getDevice_name());
+////        statusTextView.setText(sensorData.getEnable());
+//        lastConnectedTextView.setText(sensorData.getLast_connection_time());
+//        lastDisconnectedTextView.setText(sensorData.getLast_disconnection_time());
+//
+//        if(sensorData.getEnable() == "true"){
+//            lastConnectedTextView.setTextColor(Color.GREEN);
+//        } else {
+//            lastConnectedTextView.setTextColor(Color.RED);
+//        }
+//        lastDisconnectedTextView.setTextColor(Color.RED);
 
 //        if(sensorData.getDevice_id() == sen)
 

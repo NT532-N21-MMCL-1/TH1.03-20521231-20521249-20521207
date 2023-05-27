@@ -79,7 +79,7 @@ public class DashBoardFragment extends Fragment {
 
                     if (!sensorDataList.isEmpty()) {
                         DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
-                        String lastID = lastSensorData.getDevice_id();
+//                        String lastID = lastSensorData.getDevice_id();
                         // Hiển thị dữ liệu lên ListView
                         dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
                         listView.setAdapter(dashboardAdapter);
@@ -111,7 +111,7 @@ public class DashBoardFragment extends Fragment {
 
                     if (!sensorDataList.isEmpty()) {
                         DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
-                        String lastID = lastSensorData.getDevice_id();
+//                        String lastID = lastSensorData.getDevice_id();
                         // Hiển thị dữ liệu lên ListView
                         dashboardAdapter = new DashboardAdapter(getActivity(), sensorDataList);
                         listView.setAdapter(dashboardAdapter);

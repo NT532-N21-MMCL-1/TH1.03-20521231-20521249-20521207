@@ -6,22 +6,22 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
+8-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="33" />
-9-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
+9-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.WAKE_LOCK" />
-11-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:5:5-68
-11-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:5:22-65
+11-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:5:5-68
+11-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:5:22-65
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:6:5-67
-12-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:6:22-64
+12-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:6:5-67
+12-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:6:22-64
 13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-13-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:7:5-79
-13-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:7:22-76
+13-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:7:5-79
+13-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:7:22-76
 14    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-14-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:8:5-75
-14-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:8:22-72
+14-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:8:5-75
+14-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:8:22-72
 15    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 15-->[com.google.android.gms:play-services-measurement:21.2.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\7506dc7da48384c24b39238effd45e5b\transformed\jetified-play-services-measurement-21.2.0\AndroidManifest.xml:26:5-110
 15-->[com.google.android.gms:play-services-measurement:21.2.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\7506dc7da48384c24b39238effd45e5b\transformed\jetified-play-services-measurement-21.2.0\AndroidManifest.xml:26:22-107
@@ -41,29 +41,29 @@
 22-->[androidx.core:core:1.9.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\c9d1df73793a88888b9fc2986788e2da\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 23
 24    <application
-24-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:10:5-63:19
+24-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:10:5-63:19
 25        android:allowBackup="true"
-25-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:11:9-35
+25-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:11:9-35
 26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 26-->[androidx.core:core:1.9.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\c9d1df73793a88888b9fc2986788e2da\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 27        android:dataExtractionRules="@xml/data_extraction_rules"
-27-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:12:9-65
+27-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:12:9-65
 28        android:debuggable="true"
 29        android:fullBackupContent="@xml/backup_rules"
-29-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:13:9-54
+29-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:13:9-54
 30        android:icon="@mipmap/ic_launcher"
-30-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:14:9-43
+30-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:14:9-43
 31        android:label="@string/app_name"
-31-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:15:9-41
+31-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:15:9-41
 32        android:roundIcon="@mipmap/ic_launcher_round"
-32-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:16:9-54
+32-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:16:9-54
 33        android:supportsRtl="true"
-33-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:17:9-35
+33-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:17:9-35
 34        android:testOnly="true"
 35        android:theme="@style/Theme.MyApplication"
-35-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:18:9-51
+35-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:18:9-51
 36        android:usesCleartextTraffic="true" >
-36-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:19:9-44
+36-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:19:9-44
 37
 38        <!-- <activity -->
 39        <!-- android:name=".BottomSheet.HumiBottomSheet" -->
@@ -93,33 +93,33 @@
 63        <!-- android:value="" /> -->
 64        <!-- </activity> -->
 65        <activity
-65-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:48:9-60:20
+65-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:48:9-60:20
 66            android:name="com.application.myapplication.MainActivity"
-66-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:49:13-41
+66-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:49:13-41
 67            android:exported="true" >
-67-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:50:13-36
+67-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:50:13-36
 68            <intent-filter>
-68-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:51:13-55:29
+68-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:51:13-55:29
 69                <action android:name="android.intent.action.MAIN" />
-69-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:52:17-69
-69-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:52:25-66
+69-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:52:17-69
+69-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:52:25-66
 70
 71                <category android:name="android.intent.category.LAUNCHER" />
-71-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:54:17-77
-71-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:54:27-74
+71-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:54:17-77
+71-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:54:27-74
 72            </intent-filter>
 73
 74            <meta-data
-74-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:57:13-59:36
+74-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:57:13-59:36
 75                android:name="android.app.lib_name"
-75-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:58:17-52
+75-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:58:17-52
 76                android:value="" />
-76-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:59:17-33
+76-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:59:17-33
 77        </activity>
 78
 79        <service android:name="org.eclipse.paho.android.service.MqttService" />
-79-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:62:9-80
-79-->D:\IOT\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:62:18-77
+79-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:62:9-80
+79-->E:\LabIot\TH1.03-20521231-20521249-20521207\Lab04\Lab04_IOT\app\src\main\AndroidManifest.xml:62:18-77
 80        <service
 80-->[com.google.firebase:firebase-analytics-ktx:21.2.0] D:\MOBILE\Open Remote\.gradle\caches\transforms-3\d0bd993ea83e6ad8af9ae5ee55ec379b\transformed\jetified-firebase-analytics-ktx-21.2.0\AndroidManifest.xml:8:9-14:19
 81            android:name="com.google.firebase.components.ComponentDiscoveryService"

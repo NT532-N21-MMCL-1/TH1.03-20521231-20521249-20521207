@@ -1,5 +1,6 @@
 package com.application.myapplication.Adapter;
 
+import com.application.myapplication.DeviceData;
 import com.application.myapplication.DeviceSensor;
 
 import java.util.List;
@@ -15,5 +16,11 @@ public interface ApiService {
     Call<List<DeviceSensor>> getData_byID(@Path("device_id") String DeviceID);
     @GET("/device/get_last_device/{device_id}")
     Call<List<DeviceSensor>> getlastData_byID(@Path("device_id") String DeviceID);
+
+    @GET("/data/{device_id}")
+    Call<List<DeviceData>> getDataByID(@Path("device_id") String device_id);
+
+
+
 
 }

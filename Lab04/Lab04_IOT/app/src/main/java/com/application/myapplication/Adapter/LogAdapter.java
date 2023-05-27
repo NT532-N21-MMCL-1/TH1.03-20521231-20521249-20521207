@@ -30,8 +30,8 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull LogAdapter.LogViewHolder holder, int position) {
         DeviceSensor logItem = logItems.get(position);
-        holder.deviceIdTextView.setText(String.valueOf(logItem.get_id()));
-        holder.deviceNameTextView.setText(logItem.getDevice_name());
+//        holder.deviceIdTextView.setText(String.valueOf(logItem.get_id()));
+//        holder.deviceNameTextView.setText(logItem.getDevice_name());
 //        holder.deviceIpTextView.setText(logItem.gegetDeviceIp());
 //        holder.valueNameTextView.setText(logItem.nagetValueName());
 //        holder.valueTextView.setText(logItem.getValue());
