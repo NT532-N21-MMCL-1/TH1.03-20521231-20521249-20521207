@@ -17,6 +17,7 @@ drawable cctv_img
 drawable circle_background
 drawable circle_border
 drawable gradient_background
+drawable gradient_line_background
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable light1_image
@@ -108,11 +109,13 @@ string hello_blank_fragment
 string ho_chi_minh
 string home
 string humidity
+string humidity_chart
 string image_description
 string lamp
 string lg_fan
 string light1_img
 string light2_img
+string light_chart
 string living_room
 string log_out
 string main_light
@@ -131,6 +134,7 @@ string setting
 string sign_in
 string sign_up
 string temperature
+string temperature_chart
 string toshiba_ac
 string tv_lg
 string visualize

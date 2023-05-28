@@ -93,7 +93,7 @@ public class TempFragment extends Fragment {
 
                     if (!sensorDataList.isEmpty()) {
                         DeviceSensor lastSensorData = sensorDataList.get(sensorDataList.size() - 1);
-                        float temperature = lastSensorData.getTemperature();
+                        float temperature = lastSensorData.getDataReceived().getTemperature();
                         DecimalFormat decimalFormat = new DecimalFormat("#.##");
                         String roundedTemperature = decimalFormat.format(temperature);
                         tempGauge.setValue(Double.parseDouble(roundedTemperature));

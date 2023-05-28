@@ -9,17 +9,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Temperature Chart"
-        android:textSize="32sp"
-        android:textColor="@color/extra_blue"
-        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="12dp"
-        android:layout_gravity="center_horizontal"/>
+        android:text="@string/temperature_chart"
+        android:textColor="@color/extra_blue"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart_temperature"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/btn_next_chart"
-            android:layout_height="400dp" />
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_temperature"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="50dp" />
 
 </LinearLayout>

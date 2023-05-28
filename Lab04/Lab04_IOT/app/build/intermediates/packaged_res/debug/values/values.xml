@@ -41,11 +41,13 @@
     <string name="ho_chi_minh">Ho Chi Minh</string>
     <string name="home">Home</string>
     <string name="humidity">Humidity</string>
+    <string name="humidity_chart">Humidity Chart</string>
     <string name="image_description">Image description</string>
     <string name="lamp">Room Light</string>
     <string name="lg_fan">LG Fan</string>
     <string name="light1_img">light1_img</string>
     <string name="light2_img">light2_img</string>
+    <string name="light_chart">Light Chart</string>
     <string name="living_room">Living Room</string>
     <string name="log_out">log out</string>
     <string name="main_light">Home Light</string>
@@ -64,6 +66,7 @@
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
     <string name="temperature">Temperature</string>
+    <string name="temperature_chart">Temperature Chart</string>
     <string name="toshiba_ac">Toshiba AC</string>
     <string name="tv_lg">TV LG</string>
     <string name="visualize">Visualize</string>

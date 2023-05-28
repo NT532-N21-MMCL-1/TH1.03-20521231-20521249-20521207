@@ -51,4 +51,7 @@
     <string name="group_img">group_img</string>
     <string name="light1_img">light1_img</string>
     <string name="light2_img">light2_img</string>
+    <string name="temperature_chart">Temperature Chart</string>
+    <string name="humidity_chart">Humidity Chart</string>
+    <string name="light_chart">Light Chart</string>
 </resources>
