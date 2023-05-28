@@ -1,10 +1,17 @@
+from ast import List
 import datetime
+from faulthandler import disable
+import json
+import threading
 import time
 from fastapi import APIRouter, BackgroundTasks
+from models.data import Data 
 from models.devices import Devices 
 from config.db import conn 
 from schemas.devices import serializeDict, serializeList
-
+from bson import ObjectId
+from fastapi.responses import JSONResponse
+enable_time =None
 devices = APIRouter()
 #ham check enable 
 def check_device_status():
@@ -76,10 +83,9 @@ async def update_device(device_id,device: Devices, background_tasks: BackgroundT
 async def get_data(device_id):
     return serializeList(conn.local.device_data.find({"device_id":device_id}))
 
-# @devices.on_event("startup")
-# async def startup_event():
-#     background_tasks = BackgroundTasks()
-#     background_tasks.add_task(check_device_status)
-#     devices.background_tasks = background_tasks
-    
+@devices.on_event("startup")
+async def startup_event():
+    background_tasks = BackgroundTasks()
+    background_tasks.add_task(check_device_status)
+    devices.background_tasks = background_tasks
 
