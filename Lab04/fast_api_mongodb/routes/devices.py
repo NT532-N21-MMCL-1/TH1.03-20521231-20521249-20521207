@@ -18,20 +18,20 @@ def check_device_status():
         for device in devices:
             
             enable = device["enable"]
-            receive_time = int(device["data_received"]["receive_time_ts"])
+            receive_time = device["data_received"]["receive_time"]
             current_time = datetime.datetime.now()
             
                 
-            time_since_last_receive_data = int(current_time.timestamp()) - receive_time
+            time_since_last_receive_data = current_time.timestamp() - receive_time
             
-            if enable == True and time_since_last_receive_data > 70 :
+            if enable == True and time_since_last_receive_data > 20 :
                 # Cập nhật trạng thái của device thành "offline"
                 conn.local.devices.update_one(
                     {"device_id": device["device_id"]},
                     {"$set": {"enable": False,"last_disconnection_time":receive_time}}
                 )
       
-        time.sleep(60)  # Đợi 1 phút để kiểm tra lại
+        time.sleep(15)  # Đợi 1 phút để kiểm tra lại
 
 #hàm này là để get tất cả các tên của device
 @devices.get('/device')
@@ -44,7 +44,7 @@ async def find_all_devices():
 async def create_device(device: Devices):
     #thời gian khởi tạo một device mới
     device.enable = False
-    device.create_time = datetime.datetime.now()
+    device.create_time = datetime.datetime.now().timestamp()
     #lưu vào bảng device
     conn.local.devices.insert_one(device.dict())
     #return lại nhưng device có trong bảng
@@ -54,14 +54,13 @@ async def create_device(device: Devices):
 @devices.put('/device/{device_id}')
 async def update_device(device_id,device: Devices, background_tasks: BackgroundTasks):
     #thoi gian nhan duoc data
-    device.data_received.receive_time = datetime.datetime.now()
-    device.data_received.receive_time_ts = datetime.datetime.now().timestamp()
+    device.data_received.receive_time = datetime.datetime.now().timestamp()
     device.data_received.device_id = device_id
     #update device database devices
     update_data =  device.data_received.dict(exclude_unset=True)
     conn.local.devices.find_one_and_update({"device_id":device_id},{
         #update trang thai va thoi gian ket noi cuoi cung
-        "$set": {"data_received": update_data,"enable":True, "last_connection_time":datetime.datetime.now()}
+        "$set": {"data_received": update_data,"enable":True, "last_connection_time":datetime.datetime.now().timestamp()}
         
     })
     #them data vao database devcie_data
