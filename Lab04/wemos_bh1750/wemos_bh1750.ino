@@ -8,10 +8,14 @@
 #include <PubSubClient.h>
 // #include <WebSocketsClient.h>
 
+
+// Khai bao ssid va password de ket noi wifi
 const char* ssid = "UiTiOt-E3.1";
 const char* password = "UiTiOtAP";
 
-const char* serverAddress = "http://172.31.10.247:8000/device/123";
+// Khai bao ServerAddress de ket noi voi FastAPI
+// Khai bao mqttServer va port de ket noi toi MQTT Broker
+const char* serverAddress = "http://172.31.10.247:8000/device/456";
 const char* mqttServer = "35.222.45.221";
 const int mqttPort = 1883;
 
@@ -21,16 +25,18 @@ const char* passwordid = "thanhduy";
 const char* topic_led_1 = "mmcl/nhom3/led/n1";
 const char* topic_led_2 = "mmcl/nhom3/led/n2";
 
-const char* name_device = "Wemos 1";
-const char* id_device = "123";
+const char* name_device = "Wemos 2";
+const char* id_device = "456";
 
 BH1750 LightSensor;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
-#define DHT_PIN D4  
+#define DHT_PIN D7  
 #define DHT_TYPE DHT11
 DHT dht(DHT_PIN, DHT_TYPE);
+
+String myip;
 
 const int ledPin1 = D5;
 const int ledPin2 = D6;   
@@ -42,7 +48,6 @@ void setup() {
 
   Wire.begin();
   LightSensor.begin();
-  dht.begin();
 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -82,21 +87,16 @@ void loop() {
     }
   }
   float h = dht.readHumidity();
+  // Read temperature as Celsius (the default)
   float t = dht.readTemperature();
+  // Read temperature as Fahrenheit (isFahrenheit = true)
+  float f = dht.readTemperature(true);
 
-  if (isnan(h) || isnan(t) || isnan(f)) {
-    Serial.println(F("Failed to read from DHT sensor!"));
-    delay(2000);
-    return;
-  }
+  float light = LightSensor.readLightLevel();
+  Serial.print("Light: ");
+  Serial.println(light);
 
-  Serial.print(F("Humidity: "));
-  Serial.print(h);
-  Serial.print(F("%  Temperature: "));
-  Serial.print(t);
-  Serial.println(F("°C "));
-
-  float light = 0;
+  // float light = 0;
 
   updateDeviceInfo(t, h, light, name_device, id_device);
   delay(10000);
@@ -139,8 +139,8 @@ void updateDeviceInfo(float temperature, float humidity, float light, const char
   doc["device_ip"] = WiFi.localIP().toString();
   
   doc["data_received"]["device_id"] = id_device;
-  doc["data_received"]["temperature"] = temperature;
-  doc["data_received"]["humidity"] = humidity;
+  doc["data_received"]["temperature"] = 0;
+  doc["data_received"]["humidity"] = 0;
   doc["data_received"]["light"] = light;
   doc["data_received"]["receive_time"] = 2;
   doc["enable"] = true;
