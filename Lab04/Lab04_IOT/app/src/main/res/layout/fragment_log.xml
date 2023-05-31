@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Fragment.LogFragment">
+    tools:context=".Fragment.Log.LogFragment">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="System Log"
+            android:text="@string/system_log"
             android:id="@+id/system_log"
-            android:textColor="@color/extra_blue"
-            android:textSize="20sp"
+            android:layout_margin="12dp"
+            android:textColor="@color/light_blue"
+            android:textSize="32sp"
             android:textStyle="bold"
             />
 
@@ -20,7 +21,8 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="4dp"/>
+        android:layout_marginBottom="80dp"
+        />
 
 
 </LinearLayout>

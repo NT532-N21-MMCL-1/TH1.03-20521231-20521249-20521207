@@ -2,65 +2,33 @@ package com.application.myapplication.Fragment.Main;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
+import com.application.myapplication.Adapter.ApiService;
+import com.application.myapplication.ApiRetrofit;
+import com.application.myapplication.DataReceived;
+import com.application.myapplication.Gauge;
 import com.application.myapplication.R;
 import com.ekn.gruzer.gaugelibrary.FullGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HumidityFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class HumidityFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HumidityFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HumidityFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HumidityFragment newInstance(String param1, String param2) {
-        HumidityFragment fragment = new HumidityFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private FullGauge humidityGauge;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,35 +40,61 @@ public class HumidityFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        humidityGauge = requireView().findViewById(R.id.humidity_info);
 
-        FullGauge humidityGauge = getView().findViewById(R.id.humidity_info);
-        Range range = new Range();
-        range.setColor(Color.parseColor("#ce0000"));
-        range.setFrom(0.0);
-        range.setTo(50.0);
-
-        Range range2 = new Range();
-        range2.setColor(Color.parseColor("#E3E500"));
-        range2.setFrom(50.0);
-        range2.setTo(100.0);
-
-        Range range3 = new Range();
-        range3.setColor(Color.parseColor("#00b20b"));
-        range3.setFrom(100.0);
-        range3.setTo(150.0);
-
-//add color ranges to gauge
-        humidityGauge.addRange(range);
-        humidityGauge.addRange(range2);
-        humidityGauge.addRange(range3);
-
-//set min max and current value
-        humidityGauge.setMinValue(0.0);
-        humidityGauge.setMaxValue(40.0);
-        humidityGauge.setValue(30.0);
-
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                callHumidityGauge();
+            }
+        };
+        timer.schedule(timerTask, 0, 5000);
 
     }
 
+    private void callHumidityGauge() {
+        ApiService apiService = ApiRetrofit.getClient().create(ApiService.class);
+        Call<List<Gauge>> callGauge = apiService.getDataReceived();
+        callGauge.enqueue(new Callback<List<Gauge>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Gauge>> call, @NonNull Response<List<Gauge>> response) {
+                if (response.isSuccessful()) {
+                    List<Gauge> gaugeList = response.body();
+                    if (gaugeList != null && !gaugeList.isEmpty()) {
+                        Gauge gauge = gaugeList.get(0);
+                        DataReceived dataReceived = gauge.getDataReceived();
+                        float humidity = dataReceived.getHumidity();
 
+                        Range range = new Range();
+                        range.setColor(Color.BLUE);
+                        range.setFrom(0.0);
+                        range.setTo(40.0);
+                        Range range2 = new Range();
+                        range2.setColor(Color.GREEN);
+                        range2.setFrom(40.0);
+                        range2.setTo(70.0);
+
+                        Range range3 = new Range();
+                        range3.setColor(Color.RED);
+                        range3.setFrom(70.0);
+                        range3.setTo(100.0);
+
+                        humidityGauge.addRange(range);
+                        humidityGauge.addRange(range2);
+                        humidityGauge.addRange(range3);
+
+                        humidityGauge.setMinValue(0.0);
+                        humidityGauge.setMaxValue(100.0);
+                        humidityGauge.setValue(humidity);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Gauge>> call, @NonNull Throwable t) {
+                Log.d("API", t.getMessage());
+            }
+        });
+    }
 }

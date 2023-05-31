@@ -33,37 +33,10 @@ public class MainFragment extends Fragment {
     private int flagLed1 = 0;
     private int flagLed2 = 0;
 
-
-    public MainFragment() {
-    }
-
-    public static MainFragment newInstance(String param1, String param2) {
-        MainFragment fragment = new MainFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        String json = "{\"error\": false, \"message\": \"API message\", \"data\": {\"temperature\": 25.0, \"humidity\": 60.0, \"light\": 500.0}}";
-//        try{
-//
-//        }catch (JSONException e){
-//            Log.e("ChartActivity", "Error parsing JSON", e);
-//        }
-
-    }
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
     @Override
@@ -75,7 +48,7 @@ public class MainFragment extends Fragment {
         light2 = getView().findViewById(R.id.light2Button);
 
         String serverUri = "tcp://35.222.45.221:1883";
-        String clientId = "lab04_iot";
+        String clientId = "lab04_IOT";
         mqttAndroidClient = new MqttAndroidClient(getContext(), serverUri, clientId);
         connectToMQTTBroker();
         mqttAndroidClient.setCallback(new MqttCallback() {
@@ -86,7 +59,7 @@ public class MainFragment extends Fragment {
             }
 
             @Override
-            public void messageArrived(String topic, MqttMessage message) throws Exception {
+            public void messageArrived(String topic, MqttMessage message) {
                 String payload = new String(message.getPayload());
                 Log.d("MQTT", "Received message on topic: " + topic + " , " + payload);
 
@@ -142,12 +115,12 @@ public class MainFragment extends Fragment {
             if (flagLed2 % 2 != 0) {
                 // publish on
                 Log.d("MQTT", "led2 on");
-                publishMessage("mmcl/nhomX/led/n2", "ON", 1);
+                publishMessage("mmcl/nhom3/led/n2", "ON", 1);
 
             } else {
                 // publish off
                 Log.d("MQTT", "led2 off");
-                publishMessage("mmcl/nhomX/led/n2", "OFF", 1);
+                publishMessage("mmcl/nhom3/led/n2", "OFF", 1);
             }
         });
     }
@@ -165,8 +138,7 @@ public class MainFragment extends Fragment {
             String password = "thanhduy";
 
             MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-            mqttConnectOptions.setAutomaticReconnect(true);     //
-            mqttConnectOptions.setCleanSession(true);       //
+            mqttConnectOptions.setCleanSession(true);
             mqttConnectOptions.setUserName(username);
             mqttConnectOptions.setPassword(password.toCharArray());
             IMqttToken token = mqttAndroidClient.connect(mqttConnectOptions);
@@ -203,7 +175,6 @@ public class MainFragment extends Fragment {
     }
 
     public void subscribeToTopic(String topic) {
-//        String topic = "SENSORS";
         int qos = 1;
         try {
             IMqttToken subToken = mqttAndroidClient.subscribe(topic, qos);
@@ -223,5 +194,4 @@ public class MainFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
 }

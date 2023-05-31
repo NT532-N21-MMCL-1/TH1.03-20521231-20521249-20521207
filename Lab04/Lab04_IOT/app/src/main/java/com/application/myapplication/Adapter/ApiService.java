@@ -1,7 +1,7 @@
 package com.application.myapplication.Adapter;
 
 import com.application.myapplication.DeviceData;
-import com.application.myapplication.DeviceSensor;
+import com.application.myapplication.Gauge;
 
 import java.util.List;
 
@@ -10,17 +10,12 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface ApiService {
-    @GET("/device")
-    Call<List<DeviceSensor>> getData();
-    @GET("/device/{device_id}")
-    Call<List<DeviceSensor>> getData_byID(@Path("device_id") String DeviceID);
-    @GET("/device/get_last_device/{device_id}")
-    Call<List<DeviceSensor>> getlastData_byID(@Path("device_id") String DeviceID);
 
     @GET("/data/{device_id}")
     Call<List<DeviceData>> getDataByID(@Path("device_id") String device_id);
 
-
+    @GET("/device")
+    Call<List<Gauge>> getDataReceived();
 
 
 }

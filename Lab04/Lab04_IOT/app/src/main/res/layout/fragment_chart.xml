@@ -10,10 +10,10 @@
 
     <ImageButton
         android:id="@+id/btn_next_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:contentDescription="next"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/next"
         android:src="@drawable/baseline_navigate_next_24" />
 
     <androidx.cardview.widget.CardView
@@ -21,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/btn_next_chart" />
-
 
 
 </RelativeLayout>

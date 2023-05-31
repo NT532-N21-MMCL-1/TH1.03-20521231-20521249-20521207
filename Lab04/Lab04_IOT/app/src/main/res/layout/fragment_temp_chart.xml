@@ -12,7 +12,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="12dp"
         android:text="@string/temperature_chart"
-        android:textColor="@color/extra_blue"
+        android:textColor="@color/light_blue"
         android:textSize="32sp"
         android:textStyle="bold" />
 

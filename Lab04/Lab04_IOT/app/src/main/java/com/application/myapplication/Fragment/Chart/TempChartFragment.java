@@ -1,12 +1,8 @@
 package com.application.myapplication.Fragment.Chart;
 
 import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
+
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +10,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.application.myapplication.Adapter.ApiService;
@@ -22,16 +17,10 @@ import com.application.myapplication.ApiRetrofit;
 import com.application.myapplication.DeviceData;
 import com.application.myapplication.R;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.DefaultFillFormatter;
-import com.github.mikephil.charting.formatter.IFillFormatter;
-import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.model.GradientColor;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
@@ -47,8 +36,6 @@ import retrofit2.Response;
 public class TempChartFragment extends Fragment {
 
     private LineChart chartTemperature;
-    private String id = "123";
-    private Timer timer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,7 +48,7 @@ public class TempChartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         chartTemperature = view.findViewById(R.id.chart_temperature);
 
-        timer = new Timer();
+        Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -73,10 +60,11 @@ public class TempChartFragment extends Fragment {
 
     void callTempChartApi() {
         ApiService apiService = ApiRetrofit.getClient().create(ApiService.class);
+        String id = "123";
         Call<List<DeviceData>> call = apiService.getDataByID(id);
         call.enqueue(new Callback<List<DeviceData>>() {
             @Override
-            public void onResponse(Call<List<DeviceData>> call, Response<List<DeviceData>> response) {
+            public void onResponse(@NonNull Call<List<DeviceData>> call, @NonNull Response<List<DeviceData>> response) {
                 if (response.isSuccessful()) {
                     List<DeviceData> dataList = response.body();
                     if (dataList != null && !dataList.isEmpty()) {
@@ -90,17 +78,8 @@ public class TempChartFragment extends Fragment {
                             entries.add(entry);
                         }
 
-                        // Tạo dataset cho biểu đồ
                         LineDataSet dataSet = new LineDataSet(entries, "Temperature");
                         dataSet.setColors(ColorTemplate.rgb("#6fff00"));
-//                        dataSet.setColors(Color.BLUE);
-
-//                        Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.gradient_background);
-//                        dataSet.setFillDrawable(drawable);
-
-//                        chartTemperature.getAxisLeft().getAxisMinimum()
-
-
 
                         dataSet.setValueTextColor(Color.BLACK);
                         dataSet.setValueTextSize(16f);
@@ -137,7 +116,7 @@ public class TempChartFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<DeviceData>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<DeviceData>> call, @NonNull Throwable t) {
                 Log.e("API", t.getMessage());
             }
         });

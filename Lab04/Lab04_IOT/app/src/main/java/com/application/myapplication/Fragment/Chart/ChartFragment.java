@@ -20,25 +20,6 @@ public class ChartFragment extends Fragment {
     private int currentFragment = 0;
     ImageButton nextChart;
 
-    public ChartFragment() {
-        // Required empty public constructor
-    }
-
-    public static ChartFragment newInstance(String param1, String param2) {
-        ChartFragment fragment = new ChartFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

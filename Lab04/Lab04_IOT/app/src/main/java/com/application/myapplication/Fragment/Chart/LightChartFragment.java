@@ -2,20 +2,18 @@ package com.application.myapplication.Fragment.Chart;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.application.myapplication.Adapter.ApiService;
 import com.application.myapplication.ApiRetrofit;
 import com.application.myapplication.DeviceData;
-import com.application.myapplication.DeviceSensor;
 import com.application.myapplication.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -23,7 +21,6 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.google.android.gms.common.api.Api;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +33,7 @@ import retrofit2.Response;
 
 public class LightChartFragment extends Fragment {
     private LineChart lightChart;
-    private String id = "456";
-    private Timer timer;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,7 +46,7 @@ public class LightChartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         lightChart = view.findViewById(R.id.chart_light);
 
-        timer = new Timer();
+        Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -61,17 +57,17 @@ public class LightChartFragment extends Fragment {
 
     }
 
-    void callLightChartApi(){
+    void callLightChartApi() {
         ApiService apiService = ApiRetrofit.getClient().create(ApiService.class);
         Call<List<DeviceData>> call = apiService.getDataByID("456");
         call.enqueue(new Callback<List<DeviceData>>() {
             @Override
-            public void onResponse(Call<List<DeviceData>> call, Response<List<DeviceData>> response) {
-                if(response.isSuccessful()){
+            public void onResponse(@NonNull Call<List<DeviceData>> call, @NonNull Response<List<DeviceData>> response) {
+                if (response.isSuccessful()) {
                     List<DeviceData> dataList = response.body();
-                    if(dataList != null && !dataList.isEmpty()){
+                    if (dataList != null && !dataList.isEmpty()) {
                         List<Entry> entries = new ArrayList<>();
-                        for(int i = 0; i < dataList.size(); i++){
+                        for (int i = 0; i < dataList.size(); i++) {
                             DeviceData data = dataList.get(i);
                             float light = data.getLight();
                             Entry entry = new Entry(i, light);
@@ -115,7 +111,7 @@ public class LightChartFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<DeviceData>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<DeviceData>> call, @NonNull Throwable t) {
 
             }
         });

@@ -3,21 +3,21 @@
 
     <item
         android:id="@+id/action_dashboard"
-        android:title="Dashboard"
+        android:title="@string/dashboard"
         android:icon="@drawable/vector_home" />
 
     <item
         android:id="@+id/action_main"
-        android:title="Main"
+        android:title="@string/main"
         android:icon="@drawable/baseline_dashboard_24" />
     <item
         android:id="@+id/action_chart"
-        android:title="Chart"
+        android:title="@string/chart"
         android:icon="@drawable/vector_profile" />
 
     <item
         android:id="@+id/action_log"
-        android:title="Log"
+        android:title="@string/log"
         android:icon="@drawable/baseline_settings_24" />
 
 </menu>

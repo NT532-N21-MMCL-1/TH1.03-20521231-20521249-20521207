@@ -32,8 +32,6 @@ import retrofit2.Response;
 
 public class HumidityChartFragment extends Fragment {
     BarChart chartHumidity;
-    private String id = "123";
-    private Timer time;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +45,7 @@ public class HumidityChartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         chartHumidity = view.findViewById(R.id.chart_humidity);
 
-        time = new Timer();
+        Timer time = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -59,13 +57,14 @@ public class HumidityChartFragment extends Fragment {
 
     private void callHumidityChartApi() {
         ApiService apiService = ApiRetrofit.getClient().create(ApiService.class);
+        String id = "123";
         Call<List<DeviceData>> call = apiService.getDataByID(id);
         call.enqueue(new Callback<List<DeviceData>>() {
             @Override
-            public void onResponse(Call<List<DeviceData>> call, Response<List<DeviceData>> response) {
+            public void onResponse(@NonNull Call<List<DeviceData>> call, @NonNull Response<List<DeviceData>> response) {
                 if (response.isSuccessful()) {
                     List<DeviceData> dataList = response.body();
-                    if (!dataList.isEmpty() && dataList != null) {
+                    if (dataList != null) {
                         List<BarEntry> entries = new ArrayList<>();
                         for (int i = 0; i < dataList.size(); i++) {
                             DeviceData data = dataList.get(i);
@@ -115,7 +114,7 @@ public class HumidityChartFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<DeviceData>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<DeviceData>> call, @NonNull Throwable t) {
                 Log.e("API", t.getMessage());
             }
         });

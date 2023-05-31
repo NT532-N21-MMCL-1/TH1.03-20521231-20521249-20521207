@@ -54,4 +54,24 @@
     <string name="temperature_chart">Temperature Chart</string>
     <string name="humidity_chart">Humidity Chart</string>
     <string name="light_chart">Light Chart</string>
+    <string name="time_and_status">Time and Status</string>
+    <string name="device_name">Device Name</string>
+    <string name="image_device">Image Device</string>
+    <string name="system_log">System Log</string>
+    <string name="temperature_room">Temperature Room</string>
+    <string name="next">next</string>
+    <string name="devices">Devices</string>
+    <string name="humidity_room">Humidity Room</string>
+    <string name="light_room">Light Room</string>
+    <string name="light_1">Light 1</string>
+    <string name="light_2">Light 2</string>
+    <string name="_14_30_30_04_1975">14:30 30-04-1975</string>
+    <string name="_30">30%</string>
+    <string name="_123456">123456</string>
+    <string name="id">ID:</string>
+    <string name="_192_168_1_2">192.168.1.2</string>
+    <string name="wemos_d1">Wemos D1</string>
+    <string name="main">Main</string>
+    <string name="chart">Chart</string>
+    <string name="log">Log</string>
 </resources>

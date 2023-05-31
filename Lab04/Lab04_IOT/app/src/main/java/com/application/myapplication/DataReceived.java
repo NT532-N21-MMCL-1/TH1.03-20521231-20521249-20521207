@@ -2,28 +2,23 @@ package com.application.myapplication;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DeviceData {
-    @SerializedName("_id")
-    private String id;
-
+public class DataReceived {
     @SerializedName("device_id")
     private final String deviceId;
 
     @SerializedName("temperature")
-    private final float temperature;
+    private final int temperature;
 
     @SerializedName("humidity")
-    private final float humidity;
+    private final int humidity;
 
     @SerializedName("light")
-    private final float light;
+    private final int light;
 
     @SerializedName("receive_time")
     private final String receiveTime;
 
-
-    public DeviceData(String id, String deviceId, float temperature, float humidity, float light, String receiveTime) {
-        this.id = id;
+    public DataReceived(String deviceId, int temperature, int humidity, int light, String receiveTime) {
         this.deviceId = deviceId;
         this.temperature = temperature;
         this.humidity = humidity;
@@ -31,37 +26,24 @@ public class DeviceData {
         this.receiveTime = receiveTime;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getDeviceId() {
         return deviceId;
     }
 
-
-    public float getTemperature() {
+    public int getTemperature() {
         return temperature;
     }
 
-
-    public float getHumidity() {
+    public int getHumidity() {
         return humidity;
     }
 
-
-    public float getLight() {
+    public int getLight() {
         return light;
     }
-
 
     public String getReceiveTime() {
         return receiveTime;
     }
-
 
 }
