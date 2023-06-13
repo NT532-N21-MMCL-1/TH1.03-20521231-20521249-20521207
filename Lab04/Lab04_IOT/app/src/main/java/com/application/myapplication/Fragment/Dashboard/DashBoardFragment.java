@@ -29,9 +29,27 @@ import retrofit2.Response;
 
 public class DashBoardFragment extends Fragment {
     private DeviceAdapter deviceAdapter;
-
+    private Timer timer;
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        // Khởi tạo lại Timer khi Fragment được tiếp tục hoạt động
+        if (timer == null) {
+            timer = new Timer();
+
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    callDashBoardDevice();
+                }
+            }, 0, 1000);
+        }
+    }
+
+
+@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -44,7 +62,7 @@ public class DashBoardFragment extends Fragment {
         deviceAdapter = new DeviceAdapter(getContext(), new ArrayList<>());
         listView.setAdapter(deviceAdapter);
 
-        Timer timer = new Timer();
+        timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -53,6 +71,29 @@ public class DashBoardFragment extends Fragment {
             }
         };
         timer.schedule(timerTask, 0, 5000);
+
+//        callDashBoardDevice();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Hủy bỏ Timer khi chuyển sang trạng thái onPause()
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
     private void callDashBoardDevice() {
@@ -67,13 +108,14 @@ public class DashBoardFragment extends Fragment {
                         deviceAdapter.clear();
                         deviceAdapter.addAll(device);
                         deviceAdapter.notifyDataSetChanged();
+                        Log.d("API", response.body().toString());
                     }
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Gauge>> call, @NonNull Throwable t) {
-
+                Log.e("API", t.getMessage());
             }
         });
     }

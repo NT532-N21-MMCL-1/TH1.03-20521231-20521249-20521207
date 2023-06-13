@@ -11,7 +11,7 @@
     <color name="extra_blue">#12283D</color>
     <color name="red">#FF0000</color>
     <color name="light_blue">#1E507D</color>
-
-
+    <color name="light_gray">#C1C9D2</color>
+    <color name="custom_blue">#6672ff</color>
 
 </resources>

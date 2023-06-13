@@ -296,6 +296,23 @@ attr closeIconStartPadding
 attr closeIconTint
 attr closeIconVisible
 attr closeItemLayout
+attr cnb_addBottomInset
+attr cnb_addLeftInset
+attr cnb_addRightInset
+attr cnb_addTopInset
+attr cnb_animationDuration
+attr cnb_backgroundColor
+attr cnb_badgeColor
+attr cnb_iconColor
+attr cnb_iconSize
+attr cnb_iconTintMode
+attr cnb_menuResource
+attr cnb_minExpandedWidth
+attr cnb_orientationMode
+attr cnb_radius
+attr cnb_textAppearance
+attr cnb_textColor
+attr cnb_unselectedColor
 attr collapseContentDescription
 attr collapseIcon
 attr collapsedSize
@@ -1335,6 +1352,8 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color cnb_default_badge_color
+color cnb_default_unselected_color
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -1346,6 +1365,7 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color custom_blue
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1396,6 +1416,8 @@ color foreground_material_light
 color gray
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color light_blue
+color light_gray
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2036,6 +2058,15 @@ dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
 dimen clock_face_margin_start
+dimen cnb_badge_size
+dimen cnb_badge_size_numberless
+dimen cnb_badge_stroke_width
+dimen cnb_badge_text_size
+dimen cnb_icon_size
+dimen cnb_space_0
+dimen cnb_space_1
+dimen cnb_space_2
+dimen cnb_space_3
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -2783,20 +2814,26 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gradient_background
 drawable gradient_line_background
+drawable ic_ai
 drawable ic_arrow_back_black_24
+drawable ic_chart
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_dashboard
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_log
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
+drawable ic_main
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable iot
 drawable light1_image
 drawable light2_image
 drawable m3_appbar_background
@@ -2878,6 +2915,7 @@ drawable tooltip_frame_light
 drawable track
 drawable vector_home
 drawable vector_profile
+drawable wemos
 drawable wemos_image
 id ALT
 id BOTTOM_END
@@ -2931,6 +2969,7 @@ id action0
 id actionDown
 id actionDownUp
 id actionUp
+id action_ai
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -2998,6 +3037,9 @@ id callMeasure
 id cancel_action
 id cancel_button
 id carryVelocity
+id cbn_item_internal_container
+id cbn_item_notification_count
+id cbn_item_title
 id center
 id centerCrop
 id centerInside
@@ -3018,6 +3060,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id closest
+id cnb_item_icon
 id collapseActionView
 id compress
 id confirm_button
@@ -3052,8 +3095,6 @@ id deviceIdTextView
 id deviceIpTextView
 id deviceNameTextView
 id device_image
-id device_last_connected
-id device_last_disconnected
 id device_name
 id devices
 id dialog_button
@@ -3119,6 +3160,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id horizontal
 id horizontal_only
 id humidity_info
 id icon
@@ -3380,6 +3422,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id time
+id time_status
 id title
 id titleDividerNoCustom
 id title_template
@@ -3402,8 +3445,10 @@ id up
 id useLogo
 id valueNameTextView
 id valueTextView
+id vertical
 id vertical_only
 id view_offset_helper
+id view_pager_main
 id view_transition
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
@@ -3531,6 +3576,8 @@ layout abc_tooltip
 layout activity_main
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout cnb_horizontal_menu_item
+layout cnb_vertical_menu_item
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3547,6 +3594,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_a_i
 layout fragment_chart
 layout fragment_dash_board
 layout fragment_humidity
@@ -3634,8 +3682,12 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw firebase_common_keep
+string _123456
+string _14_30_30_04_1975
+string _192_168_1_2
 string _25_c
 string _2_device
+string _30
 string _50
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3665,6 +3717,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string add
+string ai
 string already_have_an_account
 string androidx_startup
 string app_name
@@ -3683,6 +3736,7 @@ string cctv
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
+string chart
 string city
 string clear_text_end_icon_content_description
 string common_google_play_services_enable_button
@@ -3707,8 +3761,10 @@ string copy_toast_msg
 string cristiano
 string dashboard
 string default_web_client_id
+string device_name
 string device_s_name
 string device_s_time
+string devices
 string devices_control
 string don_t_have_an_account
 string email
@@ -3733,15 +3789,22 @@ string ho_chi_minh
 string home
 string humidity
 string humidity_chart
+string humidity_room
 string icon_content_description
+string id
 string image_description
+string image_device
 string item_view_role_description
 string lamp
 string lg_fan
 string light1_img
 string light2_img
+string light_1
+string light_2
 string light_chart
+string light_room
 string living_room
+string log
 string log_out
 string m3_sys_motion_easing_emphasized
 string m3_sys_motion_easing_emphasized_accelerate
@@ -3754,6 +3817,7 @@ string m3_sys_motion_easing_linear
 string m3_sys_motion_easing_standard
 string m3_sys_motion_easing_standard_accelerate
 string m3_sys_motion_easing_standard_decelerate
+string main
 string main_light
 string material_clock_display_divider
 string material_clock_toggle_content_description
@@ -3842,6 +3906,7 @@ string mtrl_switch_track_decoration_path
 string mtrl_switch_track_path
 string mtrl_timepicker_cancel
 string mtrl_timepicker_confirm
+string next
 string notify
 string off
 string on
@@ -3865,13 +3930,17 @@ string side_sheet_behavior
 string sign_in
 string sign_up
 string status_bar_notification_info_overflow
+string system_log
 string temperature
 string temperature_chart
+string temperature_room
+string time_and_status
 string toshiba_ac
 string tv_lg
 string visualize
 string welcome_home
 string welcome_to_iot_system_group_3
+string wemos_d1
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -5002,6 +5071,8 @@ styleable Carousel carousel_backwardTransition carousel_emptyViewsBehavior carou
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable ChipMenuItem android_icon android_enabled android_id android_title android_contentDescription cnb_backgroundColor cnb_iconColor cnb_iconTintMode cnb_textColor
+styleable ChipNavigationBar cnb_addBottomInset cnb_addLeftInset cnb_addRightInset cnb_addTopInset cnb_animationDuration cnb_badgeColor cnb_iconSize cnb_menuResource cnb_minExpandedWidth cnb_orientationMode cnb_radius cnb_textAppearance cnb_unselectedColor
 styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor

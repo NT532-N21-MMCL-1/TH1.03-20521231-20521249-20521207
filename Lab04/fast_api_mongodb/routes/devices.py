@@ -4,6 +4,7 @@ from faulthandler import disable
 import json
 import threading
 import time
+from pydantic import BaseModel
 from fastapi import APIRouter, BackgroundTasks
 from models.data import Data 
 from models.devices import Devices 
@@ -12,6 +13,10 @@ from schemas.devices import serializeDict, serializeList
 from bson import ObjectId
 from fastapi.responses import JSONResponse
 enable_time =None
+import numpy as np
+import joblib
+model = joblib.load('random_forest_model.joblib')
+
 devices = APIRouter()
 #ham check enable 
 def check_device_status():
@@ -89,3 +94,20 @@ async def startup_event():
     background_tasks.add_task(check_device_status)
     devices.background_tasks = background_tasks
 
+class WeatherData(BaseModel):
+    humidity: float
+    temperature: float
+
+# Định nghĩa hàm POST để xử lý dữ liệu
+@devices.post("/predict_windspeed")
+def predict_windspeed(temperature: float, humidity: float):
+    # Lấy humidity và temperature từ dữ liệu đầu vào
+    # humidity = data.humidity
+    # temperature = data.temperature
+    weatherdata = np.array([[temperature, humidity]])
+   
+    # Sử dụng mô hình đã train để dự đoán windspeed
+    windspeed = model.predict(weatherdata)  # Thay "predict_windspeed_from_model" bằng hàm dự đoán của bạn
+
+    # Trả về giá trị windspeed dự đoán
+    return {"windspeed": windspeed}

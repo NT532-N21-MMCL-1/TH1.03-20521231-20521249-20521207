@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.application.myapplication.app-mergeDebugResources-37:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.application.myapplication.app-mergeDebugResources-38:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "D:\\MOBILE\\Open Remote\\.gradle\\caches\\transforms-3\\95950d354b84d5d91cbfde9f6f44b692\\transformed\\material-1.8.0\\res\\values-night-v8\\values-night-v8.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "E:\\LabIot\\TH1.03-20521231-20521249-20521207\\Lab04\\Lab04_IOT\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "E:\\TH\\TH1.03-20521231-20521249-20521207\\Lab04\\Lab04_IOT\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

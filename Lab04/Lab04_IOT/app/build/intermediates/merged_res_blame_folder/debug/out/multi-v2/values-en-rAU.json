@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.application.myapplication.app-mergeDebugResources-37:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "com.application.myapplication.app-mergeDebugResources-38:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "D:\\MOBILE\\Open Remote\\.gradle\\caches\\transforms-3\\e2be6c5495a727b53141a8928c63c238\\transformed\\appcompat-1.6.1\\res\\values-en-rAU\\values-en-rAU.xml",

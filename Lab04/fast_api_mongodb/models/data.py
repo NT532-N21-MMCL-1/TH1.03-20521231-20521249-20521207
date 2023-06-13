@@ -6,3 +6,6 @@ class Data(BaseModel):
     humidity: float
     light: int
     receive_time: int
+
+    # 
+    # device_ip: str

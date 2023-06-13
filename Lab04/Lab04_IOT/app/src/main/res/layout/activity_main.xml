@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linear_main"
@@ -13,19 +13,39 @@
     <RelativeLayout
         android:id="@+id/relative_bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp"
-            android:background="@color/gray"
-            app:itemBackground="@color/gray"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_navigation" />
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/gray"
+                    app:itemBackground="@color/light_gray"
+                    app:itemIconTint="@color/white"
+                    app:itemTextColor="@color/white"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/bottom_navigation" />
+
+<!--        <com.ismaeldivita.chipnavigation.ChipNavigationBar-->
+<!--            android:id="@+id/bottomNavigationView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginBottom="0dp"-->
+<!--            android:background="@color/gray"-->
+<!--            app:cnb_addBottomInset="false"-->
+<!--            app:cnb_addLeftInset="false"-->
+<!--            app:cnb_addRightInset="false"-->
+<!--            app:cnb_addTopInset="false"-->
+<!--            app:cnb_animationDuration="175"-->
+<!--            app:cnb_badgeColor="@color/custom_blue"-->
+<!--            app:cnb_iconSize="24dp"-->
+<!--            app:cnb_menuResource="@menu/bottom_navigation"-->
+<!--            app:cnb_orientationMode="horizontal"-->
+<!--            app:cnb_radius="8dp"-->
+<!--            app:cnb_unselectedColor="@color/custom_blue" />-->
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

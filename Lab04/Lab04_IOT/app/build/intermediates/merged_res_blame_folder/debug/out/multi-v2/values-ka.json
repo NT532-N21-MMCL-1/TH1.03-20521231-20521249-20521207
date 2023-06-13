@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.application.myapplication.app-mergeDebugResources-37:/values-ka/values-ka.xml",
+            "outputFile": "com.application.myapplication.app-mergeDebugResources-38:/values-ka/values-ka.xml",
             "map": [
                 {
                     "source": "D:\\MOBILE\\Open Remote\\.gradle\\caches\\transforms-3\\e5ab2a8e900150f7408f8ffef29394c8\\transformed\\browser-1.4.0\\res\\values-ka\\values-ka.xml",

@@ -36,7 +36,7 @@ const int ledPin1 = D5;
 const int ledPin2 = D6;   
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
 
@@ -84,7 +84,7 @@ void loop() {
   float h = dht.readHumidity();
   float t = dht.readTemperature();
 
-  if (isnan(h) || isnan(t) || isnan(f)) {
+  if (isnan(h) || isnan(t)) {
     Serial.println(F("Failed to read from DHT sensor!"));
     delay(2000);
     return;

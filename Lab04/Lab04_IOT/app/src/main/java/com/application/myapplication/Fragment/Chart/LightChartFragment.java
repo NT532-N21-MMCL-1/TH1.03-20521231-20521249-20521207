@@ -1,6 +1,7 @@
 package com.application.myapplication.Fragment.Chart;
 
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import com.application.myapplication.ApiRetrofit;
 import com.application.myapplication.DeviceData;
 import com.application.myapplication.R;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -67,7 +70,7 @@ public class LightChartFragment extends Fragment {
                     List<DeviceData> dataList = response.body();
                     if (dataList != null && !dataList.isEmpty()) {
                         List<Entry> entries = new ArrayList<>();
-                        for (int i = 0; i < dataList.size(); i++) {
+                        for (int i = dataList.size() - 10; i < dataList.size(); i++) {
                             DeviceData data = dataList.get(i);
                             float light = data.getLight();
                             Entry entry = new Entry(i, light);
@@ -81,6 +84,28 @@ public class LightChartFragment extends Fragment {
                         dataSet.setLineWidth(7f);
                         dataSet.setDrawValues(false);
                         dataSet.setDrawCircles(false);
+
+                        // Gradient color cho graph
+                        int startColor = Color.parseColor("#2EB62C");
+                        int endColor = Color.parseColor("#ABE098");
+                        dataSet.setDrawFilled(true);
+                        dataSet.setFillDrawable(getGradientDrawable(startColor, endColor));
+
+                        // Xóa đường kẻ dọc cho chart
+                        XAxis xAxis = lightChart.getXAxis();
+                        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                        xAxis.setDrawGridLines(false);
+                        xAxis.setDrawLabels(false);
+
+                        // Xóa đường kẻ ngang cho chart
+                        YAxis leftYAxis = lightChart.getAxisLeft();
+                        leftYAxis.setDrawGridLines(false);
+                        YAxis rightYAxis = lightChart.getAxisRight();
+                        rightYAxis.setDrawGridLines(false);
+
+                        lightChart.setDrawBorders(true);
+                        lightChart.setBorderColor(Color.BLACK);
+                        lightChart.setBorderWidth(1f);
 
                         lightChart.setTouchEnabled(true);
                         lightChart.setDragEnabled(true);
@@ -115,5 +140,14 @@ public class LightChartFragment extends Fragment {
 
             }
         });
+    }
+
+    private GradientDrawable getGradientDrawable(int startColor, int endColor) {
+        GradientDrawable drawable = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[]{startColor, endColor}
+        );
+        drawable.setCornerRadius(0f);
+        return drawable;
     }
 }

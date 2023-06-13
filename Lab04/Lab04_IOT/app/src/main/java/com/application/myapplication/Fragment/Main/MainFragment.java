@@ -13,7 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
+import com.application.myapplication.Adapter.FragmentAdapter;
 import com.application.myapplication.R;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
@@ -32,6 +34,7 @@ public class MainFragment extends Fragment {
     MqttAndroidClient mqttAndroidClient;
     private int flagLed1 = 0;
     private int flagLed2 = 0;
+    private ViewPager viewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,9 +46,11 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        nextButton = getView().findViewById(R.id.btn_next_fragment);
-        light1 = getView().findViewById(R.id.light1Button);
-        light2 = getView().findViewById(R.id.light2Button);
+        viewPager = view.findViewById(R.id.view_pager_main);
+
+        nextButton = requireView().findViewById(R.id.btn_next_fragment);
+        light1 = requireView().findViewById(R.id.light1Button);
+        light2 = requireView().findViewById(R.id.light2Button);
 
         String serverUri = "tcp://35.222.45.221:1883";
         String clientId = "lab04_IOT";
@@ -147,7 +152,7 @@ public class MainFragment extends Fragment {
                 public void onSuccess(IMqttToken asyncActionToken) {
                     Log.d("MQTT", "Connect to Broker Successfully");
 
-                    subscribeToTopic("abc");
+//                    subscribeToTopic("abc");
 //                    subscribeToTopic(TOPIC_HUMIDITY);
 
                 }

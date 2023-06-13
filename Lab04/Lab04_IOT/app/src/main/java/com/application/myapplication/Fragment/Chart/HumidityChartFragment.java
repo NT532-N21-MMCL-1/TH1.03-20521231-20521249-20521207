@@ -66,7 +66,7 @@ public class HumidityChartFragment extends Fragment {
                     List<DeviceData> dataList = response.body();
                     if (dataList != null) {
                         List<BarEntry> entries = new ArrayList<>();
-                        for (int i = 0; i < dataList.size(); i++) {
+                        for (int i = dataList.size() - 10; i < dataList.size(); i++) {
                             DeviceData data = dataList.get(i);
                             float humidity = data.getHumidity();
                             BarEntry entry = new BarEntry(i, humidity);
@@ -80,6 +80,19 @@ public class HumidityChartFragment extends Fragment {
                         dataSet.setDrawValues(false);
                         dataSet.setDrawIcons(false);
                         dataSet.setBarBorderWidth(0.5f);
+
+                        // Xóa đường kẻ ngang
+                        chartHumidity.getXAxis().setDrawGridLines(false);
+                        chartHumidity.getAxisLeft().setDrawGridLines(false);
+
+                        // Xóa đường kẻ dọc
+                        chartHumidity.getAxisLeft().setDrawAxisLine(false);
+                        chartHumidity.getAxisLeft().setDrawGridLines(false);
+                        chartHumidity.getAxisRight().setDrawAxisLine(false);
+                        chartHumidity.getAxisRight().setDrawGridLines(false);
+
+                        chartHumidity.setDrawBorders(true);
+                        chartHumidity.setBorderWidth(1f);
 
                         chartHumidity.setTouchEnabled(true);
                         chartHumidity.setDragEnabled(true);

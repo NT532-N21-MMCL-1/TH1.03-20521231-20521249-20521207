@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.application.myapplication.app-mergeDebugResources-37:/values-nl/values-nl.xml",
+            "outputFile": "com.application.myapplication.app-mergeDebugResources-38:/values-nl/values-nl.xml",
             "map": [
                 {
                     "source": "D:\\MOBILE\\Open Remote\\.gradle\\caches\\transforms-3\\95950d354b84d5d91cbfde9f6f44b692\\transformed\\material-1.8.0\\res\\values-nl\\values-nl.xml",
