@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_dashboard"
+        android:enabled="true"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/dashboard"
+        app:cnb_backgroundColor="@color/custom_blue"
+        app:cnb_iconColor="@color/white"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/design_default_color_on_primary" />
+
+    <item
+        android:id="@+id/action_main"
+        android:enabled="true"
+        android:icon="@drawable/ic_main"
+        android:title="@string/main"
+        app:cnb_backgroundColor="@color/custom_blue"
+        app:cnb_iconColor="@color/design_default_color_on_primary"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/design_default_color_on_primary" />
+
+    <item
+        android:id="@+id/action_ai"
+        android:enabled="true"
+        android:icon="@drawable/ic_ai"
+        android:title="@string/ai"
+        app:cnb_backgroundColor="@color/custom_blue"
+        app:cnb_iconColor="@color/design_default_color_on_primary"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/design_default_color_on_primary" />
+
+    <item
+        android:id="@+id/action_chart"
+        android:enabled="true"
+        android:icon="@drawable/ic_chart"
+        android:title="@string/chart"
+        app:cnb_backgroundColor="@color/custom_blue"
+        app:cnb_iconColor="@color/design_default_color_on_primary"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/design_default_color_on_primary" />
+
+    <item
+        android:id="@+id/action_log"
+        android:enabled="true"
+        android:icon="@drawable/ic_log"
+        android:title="@string/log"
+        app:cnb_backgroundColor="@color/custom_blue"
+        app:cnb_iconColor="@color/design_default_color_on_primary"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/design_default_color_on_primary" />
+
+</menu>

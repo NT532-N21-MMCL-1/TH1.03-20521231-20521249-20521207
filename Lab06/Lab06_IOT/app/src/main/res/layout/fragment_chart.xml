@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="12dp"
+    android:backgroundTint="@color/white"
+    tools:context="iot.baoduy.iotapp.Fragment.Chart.ChartFragment">
+
+    <ImageButton
+        android:id="@+id/btn_next_chart"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/next"
+        android:src="@drawable/baseline_navigate_next_24" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/switch_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn_next_chart" />
+
+</RelativeLayout>
