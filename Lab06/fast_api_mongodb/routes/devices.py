@@ -100,14 +100,16 @@ class WeatherData(BaseModel):
 
 # Định nghĩa hàm POST để xử lý dữ liệu
 @devices.post("/predict_windspeed")
-def predict_windspeed(temperature: float, humidity: float):
+def predict_windspeed(data:WeatherData):
     # Lấy humidity và temperature từ dữ liệu đầu vào
-    # humidity = data.humidity
-    # temperature = data.temperature
-    weatherdata = np.array([[temperature, humidity]])
-   
+    input_data = data.json()
+    input_dict = json.loads(input_data)
+    humidity = input_dict['humidity']
+    temperature = input_dict['temperature']
+    weatherdata = [temperature, humidity]
+    
     # Sử dụng mô hình đã train để dự đoán windspeed
-    windspeed = model.predict(weatherdata)  # Thay "predict_windspeed_from_model" bằng hàm dự đoán của bạn
-
+    windspeed = model.predict([weatherdata])  # Thay "predict_windspeed_from_model" bằng hàm dự đoán của bạn
+    print(windspeed)
     # Trả về giá trị windspeed dự đoán
-    return {"windspeed": windspeed}
+    return {"windspeed":windspeed[0]}
